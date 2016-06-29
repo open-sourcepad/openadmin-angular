@@ -2,7 +2,7 @@ set :stage, :production
 set :rails_env, 'production'
 set :branch, "staging"
 
-server '',
+server '<insert_server_ip>',
   user: 'deploy',
   roles: %w{web app db},
   ssh_options: {
