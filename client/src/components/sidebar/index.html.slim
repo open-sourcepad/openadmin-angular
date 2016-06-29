@@ -1,0 +1,23 @@
+.sidebar.condensed
+  .menu
+    ul
+      li.filler
+      li
+        a href="/admin/dashboard" ng-active=""
+          i.icon-chart.icon
+          span Dashboard
+      li
+        a href="/admin/users" ng-active=""
+          i.icon.icon-people
+          span Users
+      li
+        a ng-click="setActive('settings')" ng-class="{active: activeSidebar=='settings'}"
+          i.icon.icon-settings
+          span Settings
+        ul.sub-menu ng-show="activeSidebar =='settings'"
+          li
+            a href="" Sub Menu 1
+          li
+            a href="" Sub Menu 2
+          li
+            a href="" Sub Menu 3

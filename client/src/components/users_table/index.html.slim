@@ -1,0 +1,17 @@
+table.table.table-hover
+  thead
+    tr
+      th Email
+      th First Name
+      th Last Name
+      th Status
+      th
+  tbody
+    tr ng-repeat="obj in $ctrl.collection"
+      td ng-bind="obj.email"
+      td ng-bind="obj.first_name"
+      td ng-bind="obj.last_name"
+      td
+      td.action-td
+        a.icon.icon-pencil ng-click="$ctrl.edit({obj: obj})"
+        a.icon.icon-trash ng-click="$ctrl.delete({obj: obj})"

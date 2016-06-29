@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]>    <html class="ie8 ielt9"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
+  <head>
+    <title>Sp Metrics</title>
+    <base href="/" />
+
+
+    <meta name="robots" content="noindex">
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="true" name="HandheldFriendly" />
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+    <meta content="text/html;charset=UTF-8" http-equiv="content-type" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.3.2/css/simple-line-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200normal,200italic,300normal,300italic,400normal,400italic,600normal,600italic,700normal,700italic,900normal,900italic" rel="stylesheet">
+
+    <%= stylesheet_link_tag    "app" %>
+    <%= javascript_include_tag "app" %>
+
+  </head>
+
+  <body ng-app="client" ng-class="bodyClass">
+    <div ui-view=""></div>
+    <div growl limit-messages="1"></div>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+span ng-click="$ctrl.sort($ctrl.columnName)"
+  | {{$ctrl.label}}
+
+  .trend-container ng-show="$ctrl.assessSort()"
+    i.icon ng-class="$ctrl.assessSort()"
+  .inactive-container ng-show="!$ctrl.assessSort()"
+    i.icon.icon-car-up
+    i.icon.icon-car-down

@@ -1,0 +1,20 @@
+.page-title
+  .title Users
+
+.inner-container
+  .panel
+    .panel-head
+      .panel-action
+        a ng-click="toggleModal(null)"
+          i.icon.icon-plus
+    .panel-body
+      users-table collection="collection" edit="toggleModal(obj)" destroy="destroy(obj)"
+
+
+user-modal(
+  obj="currentUser"
+  loading="uiState.loading"
+  toggle="toggleModal(null)"
+  submit="save(obj)"
+  ng-if="uiState.userModal"
+)

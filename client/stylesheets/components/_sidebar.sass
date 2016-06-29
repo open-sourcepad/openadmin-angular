@@ -1,0 +1,96 @@
+.sidebar
+  position: fixed
+  z-index: 1000
+  top: 0
+  height: 100%
+  width: $sidebar-offset
+  background: $white
+  text-align: center
+  overflow: auto
+  overflow-x: hidden
+  transition: all .1s
+  +box-shadow((0 0 .0625rem rgba(0,0,0,.075),0 .0625rem .125rem rgba(0,0,0,.25)))
+  .logo
+    min-height: 40px
+    margin: 10px 0px
+    img
+      width: 120px
+  ul
+    margin: 0px 0 20px 0
+    padding-left: 0
+    list-style: none
+    li
+      position: relative
+      display: block
+      &.filler
+        min-height: 53px
+        background-color: mix(white, $primary, 15%)
+      a
+        text-align: left
+        padding: 15px 30px
+        position: relative
+        display: block
+        font-weight: 400
+        color: $gray
+        &:hover
+          color: $gray
+          background-color: mix(white, $gray, 97%)
+        &.active
+          background-color: mix(white, $gray, 97%)
+          color: $gray
+          font-weight: 600
+          &:before
+            background: $primary
+            box-shadow: 0 0 0 1px $primary
+        &.spacer-link
+          min-height: 70px
+          background-color: mix(black, $blue, 10%)
+        &:before
+          box-shadow: 0 0 0 .0625rem rgba(0,0,0,.2)
+          content: ''
+          position: relative
+          display: inline-block
+          float: right
+          margin-top: 6px
+          width: 5px
+          height: 5px
+          border-radius: 50%
+
+      i
+        font-size: 14px
+        vertical-align: middle
+        width: 16px
+        text-align: center
+        margin-right: 15px
+
+    .sub-menu
+      li
+        a
+          padding: 10px 57px
+          &:hover
+            background-color: mix(white, $gray, 99%)
+          &:before
+            content: none
+
+body.condensed .sidebar
+  width: 70px
+  .logo img
+    width: 65px
+  ul
+    margin: 0px 0 20px 0
+    padding-left: 0
+    list-style: none
+    li
+      position: relative
+      display: block
+      a
+        text-align: left
+        padding: 15px 30px
+        position: relative
+        display: block
+        font-weight: 400
+        color: $gray
+        &:before
+          content: none
+        span
+          display: none

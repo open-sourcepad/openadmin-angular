@@ -1,0 +1,20 @@
+engines:
+  # ... CONFIG CONTENT ...
+  brakeman:
+    enabled: true
+    # ... CONFIG CONTENT ...
+languages:
+  Ruby: true
+ratings:
+  paths:
+  - app/**
+exclude_paths:
+- "config/**/*"
+- "client/**/*"
+- "public/**/*"
+- "spec/**/*"
+- "bin/**/*"
+- "Gemfile.lock"
+- "Gemfile"
+- "config.ru"
+- "README.rdoc"

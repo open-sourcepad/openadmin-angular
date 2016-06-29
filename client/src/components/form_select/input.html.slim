@@ -1,0 +1,8 @@
+select.form-control(
+  ng-model="$ctrl.fieldValue"
+  name="{{$ctrl.fieldName}}"
+  ng-class="{error: $ctrl.hasError()}"
+  required="$ctrl.isRequired"
+  ng-options="option[$ctrl.optionValue] as option[$ctrl.optionName] for option in $ctrl.options"
+  ng-change="$ctrl.onChange()"
+)

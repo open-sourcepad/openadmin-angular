@@ -1,0 +1,31 @@
+{
+  "name": "client",
+  "version": "0.0.0",
+  "authors": [
+    "rav bay <ravzski@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-aria": "~1.5.5",
+    "angular-animate": "~1.5.5",
+    "angular": "~1.5.5",
+    "angular-resource": "~1.5.5",
+    "angular-sanitize": "~1.5.5",
+    "angular-growl-v2": "^0.7.9",
+    "moment": "^2.13.0",
+    "angular-ui-router": "ui-router#^0.2.18",
+    "ui-select": "angular-ui-select#^0.16.1",
+    "sweetalert2": "^2.2.0",
+    "moment-timezone": "^0.5.4"
+  },
+  "resolutions": {
+    "angular": "=1.4.5"
+  }
+}

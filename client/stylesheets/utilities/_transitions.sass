@@ -1,0 +1,180 @@
+=transition($args)
+  -webkit-transition: $args
+  -moz-transition: $args
+  -ms-transition: $args
+  -o-transition: $args
+  transition: $args
+
+.animate-enter,
+.animate-leave
+  -webkit-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all
+  -moz-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all
+  -ms-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all
+  -o-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all
+  transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all
+  position: relative
+  display: block
+
+.animate-enter.animate-enter-active,
+.animate-leave
+  opacity: 1
+  top: 0
+  height: 30px
+
+.animate-leave.animate-leave-active,
+.animate-enter
+  opacity: 0
+  top: -50px
+  height: 0px
+
+.fade.ng-enter
+  +transition(0.5s linear all)
+  opacity: 0
+
+
+.fade.ng-enter.ng-enter-active
+  opacity: 1
+
+
+$speed: 500ms
+
+.anim-in-out
+  &.anim-in-setup
+    &.anim-swap, .anim-swap
+    &.anim-fade, .anim-fade
+      opacity: 0
+    &.anim-slide-left, .anim-slide-left
+      transform: translateX(100%)
+    &.anim-slide-right, .anim-slide-right
+      transform: translateX(-100%)
+    &.anim-slide-below, .anim-slide-below
+      transform: translateY(20px)
+    &.anim-slide-below-fade, .anim-slide-below-fade
+      opacity: 0
+      transform: translateY(20px)
+    &.anim-zoom-out, .anim-zoom-out
+      transform: scale(0.95)
+    &.anim-zoom-in, .anim-zoom-in
+      transform: scale(1.025)
+    &.anim-zoom-out-full, .anim-zoom-out-full
+      transform: scale(0)
+    &.anim-zoom-in-full, .anim-zoom-in-full
+      transform: scale(10)
+  &.anim-in
+    &.anim-swap, .anim-swap
+    &.anim-fade, .anim-fade
+      opacity: 1
+      transition: all $speed
+    &.anim-slide-left, .anim-slide-left
+      transform: translateX(0)
+      transition: all $speed
+    &.anim-slide-right, .anim-slide-right
+      transform: translateX(0)
+      transition: all $speed
+    &.anim-slide-below, .anim-slide-below
+      transform: translateY(0)
+      transition: all $speed
+    &.anim-slide-below-fade, .anim-slide-below-fade
+      opacity: 1
+      transform: translateY(0)
+      transition: all $speed
+    &.anim-zoom-out, .anim-zoom-out
+      transform: scale(1)
+      transition: all $speed
+    &.anim-zoom-in, .anim-zoom-in
+      transform: scale(1)
+      transition: all $speed
+    &.anim-zoom-out-full, .anim-zoom-out-full
+      transform: scale(1)
+      transition: all $speed
+    &.anim-zoom-in-full, .anim-zoom-in-full
+      transform: scale(1)
+      transition: all $speed
+  &.anim-out-setup
+    &.anim-swap, .anim-swap
+    &.anim-fade, .anim-fade
+      opacity: 1
+      transition: all $speed
+    &.anim-slide-left, .anim-slide-left
+      transform: translateX(0)
+      transition: all $speed
+    &.anim-slide-right, .anim-slide-right
+      transform: translateX(0)
+      transition: all $speed
+    &.anim-slide-below, .anim-slide-below
+      transform: translateY(0)
+      transition: all $speed
+    &.anim-slide-below-fade, .anim-slide-below-fade
+      opacity: 1
+      transform: translateY(0)
+      transition: all $speed
+    &.anim-zoom-out, .anim-zoom-out
+      transform: scale(1)
+      transition: all $speed
+    &.anim-zoom-in, .anim-zoom-in
+      transform: scale(1)
+      transition: all $speed
+    &.anim-zoom-out-full, .anim-zoom-out-full
+      transform: scale(1)
+      transition: all $speed
+    &.anim-zoom-in-full, .anim-zoom-in-full
+      transform: scale(1)
+      transition: all $speed
+  &.anim-out
+    &.anim-swap, .anim-swap
+      display: none
+    &.anim-fade, .anim-fade
+      opacity: 0
+      transition: all $speed
+    &.anim-slide-left, .anim-slide-left
+      transform: translateX(-100%)
+      transition: all $speed
+    &.anim-slide-right, .anim-slide-right
+      transform: translateX(100%)
+      transition: all $speed
+    &.anim-slide-below, .anim-slide-below
+      transform: translateY(20px)
+      transition: all $speed
+    &.anim-slide-below-fade, .anim-slide-below-fade
+      opacity: 0
+      transform: translateY(20px)
+      transition: all $speed
+    &.anim-zoom-out, .anim-zoom-out
+      transform: scale(0.95)
+      transition: all $speed
+    &.anim-zoom-in, .anim-zoom-in
+      transform: scale(1.025)
+      transition: all $speed
+    &.anim-zoom-out-full, .anim-zoom-out-full
+      transform: scale(0)
+      transition: all $speed
+    &.anim-zoom-in-full, .anim-zoom-in-full
+      transform: scale(10)
+      transition: all $speed
+
+.amcharts-graph-g1 .amcharts-graph-fill
+  -webkit-animation: css-effect 10s ease-out forwards
+  animation: css-effect 3s ease-out forwards
+
+.amcharts-graph-fill
+  stroke-dasharray: 500%
+  -webkit-animation: css-effect 10s ease-out forwards
+  animation: css-effect 3s ease-out forwards
+
+.amcharts-graph-g1 .amcharts-graph-stroke
+  stroke-dasharray: 500%
+  -webkit-animation: css-effect 10s ease-out forwards
+  animation: css-effect 3s ease-out forwards
+
+@-webkit-keyframes css-effect
+  0%
+    stroke-dashoffset: 500%
+  100%
+    stroke-dashoffset: 0%
+
+
+@keyframes css-effect
+  0%
+    stroke-dashoffset: 500%
+  100%
+    stroke-dashoffset: 0%

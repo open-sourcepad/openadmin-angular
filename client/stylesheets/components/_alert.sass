@@ -1,0 +1,30 @@
+=tag($color, $bg-color)
+  background-color: $bg-color
+  padding: 6px 10px
+  border-radius: 2px
+  color: $color
+  font-size: 10px
+
+.alert-error
+  background-color: $danger
+  color: $white
+
+.alert-success
+  background-color: $success
+  color: $white
+
+
+.growl-container.growl-fixed
+  width: 300px
+
+.success-tag, .Approved-tag
+  +tag($white,$success)
+
+.danger-tag, .Rejected-tag
+  +tag($white,$danger)
+
+.Cancelled-tag
+  +tag($gray,$default)
+
+.Pending-tag
+  +tag($white,$warning)

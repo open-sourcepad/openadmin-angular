@@ -1,0 +1,51 @@
+body
+  font-family: $primary-font
+  font-size: 12px
+  background-color: $primary-bg
+  font-weight: 300
+  color: $gray
+  overflow-x: hidden
+  width: 100%
+  margin: 0px
+a
+  color: $gray
+  outline:none
+  text-decoration: none
+  &:hover
+    text-decoration: none
+    color: $gray-mid
+  &:focus
+    color: $gray
+    text-decoration: none
+
+[ng-click],
+[data-ng-click],
+[x-ng-click],[ui-sref]
+  cursor: pointer
+
+
+p
+  font-size: 14px
+  line-height: 1.428571429
+
+ul.reset
+  +ul-reset
+  &.inline
+
+
+.row
+  &:before
+    display: table
+    content: " "
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+  &:after
+    clear: both
+    display: table
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
+  display: none !important

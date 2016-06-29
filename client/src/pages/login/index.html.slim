@@ -1,0 +1,13 @@
+.login-container
+  .panel
+    .panel-head
+      h2 Please sign in to your account
+    .panel-body
+      login-form login="login(creds)" loading="uiState.loading"
+
+      .text-center
+        a.forgot href="/forgot_password" Forgot Password?
+        hr
+        span Do not have an account?
+        br
+        a.btn-bordered.btn-block href="/sign_up" Sign up

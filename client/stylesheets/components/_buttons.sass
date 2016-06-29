@@ -1,0 +1,69 @@
+=buttons($color, $bg-color)
+  color: $color
+  background-color: $bg-color
+  border: 0px
+  &:hover, &:focus, &:active
+    color: #fff
+    background-color: mix(black, $bg-color, 15%)
+    cursor: pointer
+  &.no-hover
+    &:hover, &:focus, &:active
+      color: $color
+      background-color: $bg-color
+
+.btn-block
+  display: block
+  width: 100%
+
+.btn-close
+  position: absolute
+  right: 15px
+  background-repeat: no-repeat
+  top: 16px
+  font-size: 26px
+
+.btn
+  border: 0px
+  border-radius: 0px
+  padding: 7px 15px
+  font-size: 14px
+  font-weight: 200
+  line-height: 1.42857143
+  text-align: center
+  white-space: nowrap
+  vertical-align: middle
+  font-weight: 200
+
+.btn-default
+  +buttons(#fff,$gray-mid)
+
+.btn-success
+  +buttons(#fff,$success)
+
+.btn-primary
+  +buttons(#fff,$primary)
+
+.btn-danger
+  +buttons(#fff,$danger)
+
+.btn-warning
+  +buttons(#fff,$warning)
+
+.btn-sm
+  padding: 6px 8px
+  font-size: 10px
+
+.action.btn-row
+  .btn
+    display: inline-block
+    &:first-child
+      margin-right: 5px
+      right: 40px
+
+.btn-row
+  .btn
+    display: inline-block
+    margin-right: 5px
+    right: 40px
+    &:last-child
+      margin-right: 0px

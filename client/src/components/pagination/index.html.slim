@@ -1,0 +1,9 @@
+.row
+  .col-md-12
+    ul.pagination-sm.pagination.pull-right
+      li ng-class="{disabled: page == 1}"
+        a ng-click="queryPage('prev')" Previous
+      li ng-repeat="n in [] | range:pageCount" ng-class="{active:  n == page}"
+        a ng-bind="n" ng-click="queryPage(n)"
+      li ng-class="{disabled: page == pageCount}"
+        a ng-click="queryPage('next')" Next

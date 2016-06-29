@@ -1,0 +1,38 @@
+//mobile specifics
+$phone-s: 320px
+$phone-m: 568px
+$phone-l: 667px
+$phablet: 550px
+$tablet-s :768px
+$desktop: 1024px
+
+
+=respond-to($min,$max)
+  @if $max == 0
+    @media only screen and (min-width: $min)
+      @content
+  @else if $min == 0
+    @media only screen and (max-width: $max)
+      @content
+  @else if $min !=0 AND $max !=0
+    @media only screen and (min-width: $min) and (max-width: $max)
+      @content
+
+
+=hide-desktop
+  +respond-to($tablet-s+1,0)
+    display: none
+
+=hide-mobile
+  +respond-to(0,$tablet-s)
+    display: none
+
+
+=container($size)
+  width: $size
+  margin: 0 auto
+  +respond-to(0,$phone-m)
+    width: 330px
+    margin-top: -10px
+  +respond-to(0,$phone-s)
+    width: 320px

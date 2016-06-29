@@ -1,0 +1,48 @@
+.form-group
+  margin-bottom: 15px
+
+.form-control
+  width: 100%
+  padding: 5px 5px
+  border: 0px
+  border-bottom: 1px solid mix(white, $blue, 70%)
+  &:focus
+    outline: none
+    border-bottom: 1px solid $blue
+    box-shadow: 0 1px 0 0 $blue
+    +transition(all 0.3s)
+    &.error
+      border-bottom: 1px solid $danger
+      box-shadow: 0 1px 0 0 $danger
+  &.error
+    border-bottom: 1px solid $danger
+  textarea
+    resize: none
+
+.submit-form-row
+  margin: 15px 0px
+
+.disabled,
+.disabled input
+  cursor: default !important
+  pointer-events: none !important
+  color: white !important
+  background-color: #E6E6E6 !important
+
+select
+  text-transform: none
+  margin: 0
+  height: 34px
+  background-color: $gray-light !important
+  border: 1px solid $border !important
+  &.transparent
+    background-color: transparent
+
+label
+  font-weight: 600
+  margin-bottom: 5px
+  padding-left: 1px
+  display: block
+
+input.disabled
+  color: $gray !important

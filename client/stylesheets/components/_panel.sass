@@ -1,0 +1,29 @@
+.panel
+  background-color: $white
+  padding: 20px
+  border-radius: 1px
+  position: relative
+  +transition(all 0.2s ease-in-out)
+  &:hover
+    +box-shadow((0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)))
+  .panel-head
+    border-bottom: 1px solid $border
+    h1,h2
+      margin: 15px 0px
+      text-transform: uppercase
+      font-weight: 200
+      font-size: 1.4em
+    .panel-action
+      min-height: 40px
+      a
+        position: absolute
+        top: 15px
+        right: 15px
+        font-size: 28px
+
+  .panel-body
+    overflow-y: auto
+    overflow-x: hidden
+    padding: 20px 15px
+    &.condensed
+      padding: 0px
