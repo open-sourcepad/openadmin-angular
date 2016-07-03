@@ -1,1 +1,1 @@
- //= require ../../../client/src/manifest
+ //= require manifest.js

@@ -1,26 +1,28 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '4.2.4'
-gem 'sass-rails', '~> 4.0.3'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
-gem 'jbuilder', '~> 2.0'
+gem 'rails'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'slim-rails'
 gem 'bcrypt'
 gem 'pg'
 gem 'oj'
 gem 'multi_json'
-gem 'aws-sdk', '< 2.0'
-gem 'angular-rails-templates','0.1.3'
 gem 'factory_girl_rails'
 gem 'faker'
-gem 'redis', '~>3.2'
+gem 'redis'
 gem 'circleci'
-gem 'httparty'
 gem 'sidekiq'
 gem 'sidekiq-failures'
 gem 'whenever'
+gem 'aws-sdk'
+gem 'paperclip'
+
+# do not update these two
+gem 'sprockets','2.12.4'
+gem 'angular-rails-templates','0.1.3'
 
 group :production do
   gem 'thin'

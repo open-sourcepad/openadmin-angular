@@ -1,5 +1,5 @@
 
-//= require ../../../client/stylesheets/vendor/grid
-//= require ../../../client/stylesheets/vendor/growl
-//= require ../../../client/stylesheets/vendor/swal
-//= require ../../../client/stylesheets/manifest
+//= require vendor/grid
+//= require vendor/growl
+//= require vendor/swal
+//= require manifest
