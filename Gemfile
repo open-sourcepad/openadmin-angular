@@ -20,9 +20,7 @@ gem 'whenever'
 gem 'aws-sdk'
 gem 'paperclip'
 
-# do not update these two
-gem 'sprockets','2.12.4'
-gem 'angular-rails-templates','0.1.3'
+gem 'angular-rails-templates'
 
 group :production do
   gem 'thin'

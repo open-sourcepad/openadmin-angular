@@ -32,7 +32,7 @@ module OpenAdmin
 
     config.time_zone = 'Eastern Time (US & Canada)'
     config.active_record.raise_in_transactional_callbacks = true
-    # config.angular_templates.inside_paths   = [Rails.root.join('clientside/src/modules')]
+    config.angular_templates.inside_paths   = ['client/src']
     config.session_store :disabled
     # config.autoload_paths << Rails.root.join('app/models')
     # config.autoload_paths << Rails.root.join('app/controllers')
