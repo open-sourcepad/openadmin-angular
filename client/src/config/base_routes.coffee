@@ -13,13 +13,6 @@ angular.module('client').config [
         data:
           unauthenticated: true
 
-      .state 'register',
-        url: '/register',
-        templateUrl: 'pages/register/index.html'
-        controller: 'RegisterCtrl'
-        data:
-          unauthenticated: true
-
       .state 'admin',
         url: '/admin',
         templateUrl: 'pages/admin/index.html'

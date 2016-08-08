@@ -9,7 +9,7 @@ Ctrl = ->
   ctrl.submit =(form)->
     form.$submitted = true
     if form.$valid
-      @.submit({user: @.user})
+      @.register({user: @.user})
 
   return
 
@@ -17,4 +17,4 @@ angular.module('client').component 'registerForm',
   templateUrl: 'components/register_form/index.html'
   controller: Ctrl
   bindings:
-    submit: "&"
+    register: "&"

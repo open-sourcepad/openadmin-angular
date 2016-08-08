@@ -3,7 +3,7 @@ angular.module('client').run [
 
     $rootScope.authenticatorFlag = true
     $rootScope.bodyClass = "condensed"
-    
+
     $rootScope.$on '$stateChangeStart', (event, toState, toParams, fromState, fromParams) ->
       Session.setHeaders() if $http.defaults.headers.common.AccessToken is undefined
 

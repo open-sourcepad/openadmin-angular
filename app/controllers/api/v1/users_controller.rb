@@ -13,6 +13,7 @@ class Api::V1::UsersController < ApiController
   end
 
   def create
+    binding.pry
     @obj = User.new(obj_params)
     create_obj
   end
