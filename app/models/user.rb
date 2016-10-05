@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validate :validate_password_presence
   validate :validate_password_length
 
-  after_destroy :destroy_token
+  before_destroy :destroy_token
 
   #
   # Finds a user given email and password

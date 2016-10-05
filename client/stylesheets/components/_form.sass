@@ -4,12 +4,13 @@
 .form-control
   width: 100%
   padding: 5px 5px
+  height: 40px
   border: 0px
-  border-bottom: 1px solid mix(white, $blue, 70%)
+  border-bottom: 1px solid $dark
   &:focus
     outline: none
-    border-bottom: 1px solid $blue
-    box-shadow: 0 1px 0 0 $blue
+    border-bottom: 1px solid mix(white, $dark, 70%)
+    box-shadow: 0 1px 0 0 $dark
     +transition(all 0.3s)
     &.error
       border-bottom: 1px solid $danger
@@ -27,7 +28,11 @@
   cursor: default !important
   pointer-events: none !important
   color: white !important
-  background-color: #E6E6E6 !important
+  background-color: $gray !important
+
+.input-dark
+  background: #313334
+  color: $white
 
 select
   text-transform: none
@@ -46,3 +51,6 @@ label
 
 input.disabled
   color: $gray !important
+
+i.fa
+  font-size: 20px

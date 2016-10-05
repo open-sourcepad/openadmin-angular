@@ -14,7 +14,7 @@ Ctrl = ($scope,$state,Session,growl,$window,Auth)->
       .then (data) ->
         Auth.removeUser()
         growl.success(MESSAGES.LOGOUT_SUCCESS)
-        $state.go("login")
+        $state.go("auth.login")
 
 Ctrl.$inject = ['$scope','$state','Session','growl','$window','Auth']
 angular.module('client').controller('AdminCtrl', Ctrl)

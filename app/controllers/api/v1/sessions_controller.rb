@@ -20,7 +20,8 @@ class Api::V1::SessionsController < ApiController
   end
 
   def destroy
-    if current_user.destroy_token(request.headers['AccessToken'])
+    if current_user.destroy_token()
+    #if current_user.destroy_token(request.headers['AccessToken'])
       render_success
     else
       obj_errors

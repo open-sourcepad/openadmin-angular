@@ -3,6 +3,8 @@ Ctrl = ->
 
   ctrl.$onInit = ->
     @.user =
+      first_name: ""
+      last_name: ""
       email: ""
       password: ""
 
@@ -10,7 +12,7 @@ Ctrl = ->
     form.$submitted = true
     if form.$valid
       @.register({user: @.user})
-
+      @.$onInit()
   return
 
 angular.module('client').component 'registerForm',

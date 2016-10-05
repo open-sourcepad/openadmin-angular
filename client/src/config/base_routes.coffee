@@ -3,15 +3,22 @@ angular.module('client').config [
   ($stateProvider,$locationProvider,$urlRouterProvider) ->
 
     $locationProvider.html5Mode(true)
-    $urlRouterProvider.otherwise('/login')
+    $urlRouterProvider.otherwise('auth/login')
 
     $stateProvider
-      .state 'login',
-        url: '/login',
-        templateUrl: 'pages/login/index.html'
-        controller: 'LoginCtrl'
-        data:
-          unauthenticated: true
+    #   .state 'login',
+    #     url: '/login',
+    #     templateUrl: 'pages/login/index.html'
+    #     controller: 'LoginCtrl'
+    #     data:
+    #       unauthenticated: true
+
+    #   .state 'register',
+    #     url: '/register',
+    #     templateUrl: 'pages/register/index.html'
+    #     controller: 'RegisterCtrl'
+    #     data:
+    #       unauthenticated: true
 
       .state 'admin',
         url: '/admin',

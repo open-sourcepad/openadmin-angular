@@ -2,23 +2,39 @@ form name="registerForm" novalidate="true" autocomplete="off"
 
   .form-group
     form-input(
+      field-name="Firstname"
+      field-type="text"
+      field-value="$ctrl.user.first_name"
+      on-enter="$ctrl.submit(registerForm)"
+      is-required="true"
+      form="form"
+    )
+  .form-group
+    form-input(
+      field-name="Lastname"
+      field-type="text"
+      field-value="$ctrl.user.last_name"
+      on-enter="$ctrl.submit(registerForm)"
+      is-required="true"
+      form="form"
+    )
+  .form-group
+    form-input(
       field-name="Email"
+      field-type="email"
       field-value="$ctrl.user.email"
       on-enter="$ctrl.submit(registerForm)"
       is-required="true"
       form="form"
     )
-
-
   .form-group
     form-input(
       field-name="Password"
-      field-value="$ctrl.user.password"
       field-type="password"
+      field-value="$ctrl.user.password"
       on-enter="$ctrl.submit(registerForm)"
       is-required="true"
       form="form"
     )
-
-  .submit-row
-    a.btn.btn-primary ng-click="$ctrl.submit(registerForm)" ng-class="{disabled: $ctrl.loading}" Login
+  .submit-form-row
+    a.btn.btn-primary.btn-block.text-left ng-click="$ctrl.submit(registerForm)" ng-class="{disabled: registerForm.$invalid}" Register

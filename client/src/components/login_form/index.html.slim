@@ -2,6 +2,7 @@ form name="form" novalidate="true" autocomplete="off"
   .form-group
     form-input(
       field-name="Email"
+      field-type="email"
       field-value="$ctrl.creds.email"
       on-enter="$ctrl.submit(form)"
       is-required="true"
@@ -11,12 +12,14 @@ form name="form" novalidate="true" autocomplete="off"
   .form-group
     form-input(
       field-name="Password"
-      field-value="$ctrl.creds.password"
       field-type="password"
+      field-value="$ctrl.creds.password"
       on-enter="$ctrl.submit(form)"
       is-required="true"
       form="form"
     )
 
   .submit-form-row
-    a.btn.btn-primary.btn-block ng-click="$ctrl.submit(form)" ng-class="{disabled: $ctrl.loading}" Login
+    a.btn.btn-primary.btn-block ng-click="$ctrl.submit(form)"
+      i.icon.icon-lock
+      |  Log In

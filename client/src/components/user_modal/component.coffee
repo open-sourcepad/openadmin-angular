@@ -17,3 +17,4 @@ angular.module('client').component 'userModal',
     submit: "&"
     loading: "="
     toggle: "&"
+    obj: "="

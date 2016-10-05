@@ -6,7 +6,7 @@ module TokenProcessor
   end
 
   def destroy_token
-    self.update_attribute(:access_token, nil)
+    self.update_attributes(access_token: nil)
   end
 
 end

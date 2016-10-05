@@ -4,11 +4,11 @@
   top: 0
   height: 100%
   width: $sidebar-offset
-  background: $white
+  background: $dark
   text-align: center
   overflow: auto
   overflow-x: hidden
-  transition: all .1s
+  transition: all .4s ease 0s
   +box-shadow((0 0 .0625rem rgba(0,0,0,.075),0 .0625rem .125rem rgba(0,0,0,.25)))
   .logo
     min-height: 40px
@@ -32,13 +32,14 @@
         display: block
         font-weight: 400
         color: $gray
+        border-bottom: 1px solid #313437
         &:hover
-          color: $gray
-          background-color: mix(white, $gray, 97%)
+          color: $white
+          //background-color: mix(white, $gray, 97%)
         &.active
-          background-color: mix(white, $gray, 97%)
-          color: $gray
-          font-weight: 600
+          //background-color: mix(white, $gray, 97%)
+          color: $white
+          //font-weight: 600
           &:before
             background: $primary
             box-shadow: 0 0 0 1px $primary
@@ -73,7 +74,7 @@
             content: none
 
 body.condensed .sidebar
-  width: 70px
+  width: 80px
   .logo img
     width: 65px
   ul
@@ -84,13 +85,17 @@ body.condensed .sidebar
       position: relative
       display: block
       a
-        text-align: left
         padding: 15px 30px
         position: relative
         display: block
         font-weight: 400
-        color: $gray
+        color: #979898
+        border-bottom: 1px solid #313437
         &:before
           content: none
+        &:hover
+          color: $white
+        &.active
+          color: $white
         span
           display: none

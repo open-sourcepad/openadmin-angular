@@ -1,4 +1,4 @@
-Ctrl = ($scope,$state,User)->
+Ctrl = ($scope,$state,User,growl,Auth)->
 
   $scope.currentUser = null
 
@@ -24,13 +24,31 @@ Ctrl = ($scope,$state,User)->
         $scope.collection = data.collection
         $scope.uiState.count = data.count
 
+  $scope.save =(obj)->
+    User.update(id: obj.id,user: obj).$promise
+      .then (data)->
+        growl.success(MESSAGES.UPDATE_SUCCESS)
+      .catch (err)->
+        debugger
+
+  $scope.destroy =(obj)->
+    User.delete(id: obj.id).$promise
+      .then (data)->
+        growl.success(MESSAGES.DELETE_SUCCESS)
+        $scope.getData(1)
+      .catch (err)->
+        debugger
+
 
   $scope.toggleModal =(obj)->
-    $scope.currentUser = obj !!obj
+    if !!obj
+      $scope.currentUser = obj
+    else
+      $scope.currentUser = null
     $scope.uiState.userModal = !$scope.uiState.userModal
 
   $scope.getData(1)
 
 
-Ctrl.$inject = ['$scope','$state','User']
+Ctrl.$inject = ['$scope','$state','User','growl','Auth']
 angular.module('client').controller('UsersIndexCtrl', Ctrl)
