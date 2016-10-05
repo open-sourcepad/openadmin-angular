@@ -4,7 +4,7 @@
   top: 0
   height: 100%
   width: $sidebar-offset
-  background: $white
+  background: $primary
   text-align: center
   overflow: auto
   overflow-x: hidden
@@ -24,7 +24,9 @@
       display: block
       &.filler
         min-height: 53px
-        background-color: mix(white, $primary, 15%)
+        background-color: $primary
+        &:hover
+          background-color: mix(white, $gray, 57%)
       a
         text-align: left
         padding: 15px 30px
@@ -33,11 +35,11 @@
         font-weight: 400
         color: $gray
         &:hover
-          color: $gray
-          background-color: mix(white, $gray, 97%)
+          color: $white
+          // background-color: mix(white, $gray, 97%)
         &.active
-          background-color: mix(white, $gray, 97%)
-          color: $gray
+          // background-color: mix(white, $gray, 97%)
+          color: $white
           font-weight: 600
           &:before
             background: $primary
@@ -68,7 +70,8 @@
         a
           padding: 10px 57px
           &:hover
-            background-color: mix(white, $gray, 99%)
+            // background-color: mix(white, $gray, 99%)
+            color: $white
           &:before
             content: none
 
@@ -90,7 +93,17 @@ body.condensed .sidebar
         display: block
         font-weight: 400
         color: $gray
+        &:hover, &.active
+          color: $white
         &:before
           content: none
         span
           display: none
+
+.sidebar-toggle
+  display: block
+  position: relative
+  font-size: 1.3em
+  text-transform: uppercase
+  &:hover
+    color: $primary !important

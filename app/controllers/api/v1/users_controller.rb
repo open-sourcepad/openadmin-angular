@@ -2,7 +2,7 @@ class Api::V1::UsersController < ApiController
 
   before_filter :find_obj, only: [:update,:show,:delete]
   before_filter :find_user_by_token, only: [:verify_reset_token,:reset_password]
-
+  skip_before_action :authenticate_request, only: :create 
 
   def index
     render_with_meta_data User.all,User.count
@@ -13,13 +13,17 @@ class Api::V1::UsersController < ApiController
   end
 
   def create
-    binding.pry
     @obj = User.new(obj_params)
     create_obj
   end
 
   def update
     update_obj
+  end
+
+  def destroy
+    find_obj
+    delete_obj
   end
 
   def update_password
@@ -86,6 +90,7 @@ class Api::V1::UsersController < ApiController
       zip
       state
       email
+      password
     ))
   end
 

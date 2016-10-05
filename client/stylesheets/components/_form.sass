@@ -2,14 +2,15 @@
   margin-bottom: 15px
 
 .form-control
+  background: #313334
   width: 100%
-  padding: 5px 5px
+  padding: 10px 10px
   border: 0px
-  border-bottom: 1px solid mix(white, $blue, 70%)
+  // border-bottom: 1px solid mix(white, $blue, 70%)
   &:focus
     outline: none
-    border-bottom: 1px solid $blue
-    box-shadow: 0 1px 0 0 $blue
+    border-bottom: 1px solid $dark
+    box-shadow: 0 1px 0 0 $dark
     +transition(all 0.3s)
     &.error
       border-bottom: 1px solid $danger
@@ -22,12 +23,21 @@
 .submit-form-row
   margin: 15px 0px
 
+.btn
+  border: 3px solid #313334
+  background-color: red
+  &.text-left
+    padding: 10px 10px
+    color: white
+    text-align: left
+
 .disabled,
 .disabled input
   cursor: default !important
   pointer-events: none !important
   color: white !important
-  background-color: #E6E6E6 !important
+  // background-color: #E6E6E6 !important
+  background-color: transparent !important
 
 select
   text-transform: none

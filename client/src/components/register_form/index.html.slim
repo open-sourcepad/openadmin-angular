@@ -2,13 +2,33 @@ form name="registerForm" novalidate="true" autocomplete="off"
 
   .form-group
     form-input(
-      field-name="Email"
-      field-value="$ctrl.user.email"
+      field-name="First Name"
+      field-value="$ctrl.user.first_name"
+      field-type="text"
       on-enter="$ctrl.submit(registerForm)"
       is-required="true"
       form="form"
     )
 
+  .form-group
+    form-input(
+      field-name="Last Name"
+      field-value="$ctrl.user.last_name"
+      field-type="text"
+      on-enter="$ctrl.submit(registerForm)"
+      is-required="true"
+      form="form"
+    )
+
+  .form-group
+    form-input(
+      field-name="Email"
+      field-value="$ctrl.user.email"
+      field-type="email"
+      on-enter="$ctrl.submit(registerForm)"
+      is-required="true"
+      form="form"
+    )
 
   .form-group
     form-input(
@@ -20,5 +40,9 @@ form name="registerForm" novalidate="true" autocomplete="off"
       form="form"
     )
 
-  .submit-row
-    a.btn.btn-primary ng-click="$ctrl.submit(registerForm)" ng-class="{disabled: $ctrl.loading}" Login
+  .submit-form-row
+    a.btn.btn-dark.btn-block.text-left ng-click="$ctrl.submit(registerForm)" ng-class="{disabled: registerForm.$invalid}" Register
+
+  .submit-form-row
+    a.btn.btn-block.text-left href="auth/login" ng-class="{disabled: 
+    $ctrl.loading}" Log In

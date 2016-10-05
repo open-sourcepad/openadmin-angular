@@ -3,13 +3,17 @@ Ctrl = ->
 
   ctrl.$onInit = ->
     @.user =
+      first_name: ""
+      last_name: ""
       email: ""
       password: ""
 
   ctrl.submit =(form)->
+    debugger
     form.$submitted = true
     if form.$valid
       @.register({user: @.user})
+      @.$onInit()
 
   return
 

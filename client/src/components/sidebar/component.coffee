@@ -11,6 +11,9 @@ Ctrl =($scope,SidebarToggles,Auth,$rootScope)->
 
     return
 
+  $scope.toggleSidebar = ->
+    SidebarToggles.toggle()
+
   return
 
 

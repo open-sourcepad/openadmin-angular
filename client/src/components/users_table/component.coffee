@@ -11,3 +11,5 @@ angular.module('client').component 'usersTable',
   controller: Ctrl
   bindings:
     collection: "="
+    edit: "&"
+    destroy:"&"

@@ -1,18 +1,19 @@
-.panel
-  background-color: $white
+.panel,.panel-table
+  background-color: $primary
   padding: 20px
   border-radius: 1px
   position: relative
-  +transition(all 0.2s ease-in-out)
+  // +transition(all 0.2s ease-in-out)
   &:hover
     +box-shadow((0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)))
   .panel-head
-    border-bottom: 1px solid $border
+    // border-bottom: 1px solid $border
     h1,h2
+      color: #e0e0e0
       margin: 15px 0px
-      text-transform: uppercase
+      // text-transform: uppercase
       font-weight: 200
-      font-size: 1.4em
+      font-size: 1.5em
     .panel-action
       min-height: 40px
       a
@@ -27,3 +28,6 @@
     padding: 20px 15px
     &.condensed
       padding: 0px
+
+.panel-table
+  background-color: $white !important

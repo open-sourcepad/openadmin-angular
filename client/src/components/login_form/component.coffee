@@ -1,4 +1,4 @@
-Ctrl = ->
+Ctrl = ($state)->
   ctrl = this
 
   ctrl.$onInit = ->

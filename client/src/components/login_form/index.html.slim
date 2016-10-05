@@ -1,4 +1,5 @@
 form name="form" novalidate="true" autocomplete="off"
+
   .form-group
     form-input(
       field-name="Email"
@@ -19,4 +20,9 @@ form name="form" novalidate="true" autocomplete="off"
     )
 
   .submit-form-row
-    a.btn.btn-primary.btn-block ng-click="$ctrl.submit(form)" ng-class="{disabled: $ctrl.loading}" Login
+    a.btn.btn-block.text-left ng-click="$ctrl.submit(form)"
+      i.icon.icon-lock
+      |  Log In
+
+  .submit-form-row
+    a.btn.btn-block.text-left href="auth/register" Register

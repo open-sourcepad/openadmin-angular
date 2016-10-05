@@ -26,6 +26,7 @@
   ACCESS_DENIED: "Access Denied"
   GITHUB_ERROR: "Assign github username first"
   NO_GITHUB_USERNAME: "User has no github username"
+  REGISTER_SUCCESS: "Registration successful"
 
 @STATUS_OPTIONS = [
   {

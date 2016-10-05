@@ -1,4 +1,4 @@
-Ctrl = ($scope,$state,User)->
+Ctrl = ($scope,$state,User,growl,Auth)->
 
   $scope.currentUser = null
 
@@ -26,11 +26,24 @@ Ctrl = ($scope,$state,User)->
 
 
   $scope.toggleModal =(obj)->
-    $scope.currentUser = obj !!obj
+    debugger
+    $scope.currentUser = obj if !!obj
     $scope.uiState.userModal = !$scope.uiState.userModal
+
+  $scope.destroy =(obj)->
+    debugger
+    if Auth.getUser().id isnt obj.id
+      User.delete({id: obj.id}).$promise
+        .then (data)->
+          debugger
+          growl.success(MESSAGES.DELETE_SUCCESS)
+          $scope.getData(1)
+    else
+      debugger
+      growl.success("Cannot delete current user")
 
   $scope.getData(1)
 
 
-Ctrl.$inject = ['$scope','$state','User']
+Ctrl.$inject = ['$scope','$state','User','growl','Auth']
 angular.module('client').controller('UsersIndexCtrl', Ctrl)

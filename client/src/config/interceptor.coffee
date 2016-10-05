@@ -10,7 +10,7 @@ angular.module('client').factory('httpInterceptor', [
           when 401,403
             growl.error(message)
             $injector.get('Auth').removeUser()
-            $injector.get('$state').go("login")
+            $injector.get('$state').go("auth.login")
           when 422
             growl.error(message)
           when 500
