@@ -10,6 +10,7 @@ Rails.application.routes.draw do
           put :forgot_password
           put :reset_password
           get :verify_reset_token
+          get :search
         end
         member do
           put :update_password

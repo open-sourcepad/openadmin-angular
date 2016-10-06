@@ -2,13 +2,12 @@ Ctrl = ->
   ctrl = this
 
   ctrl.onSubmit =(form)->
+    @.status
     form.$submitted = true
     if form.$valid
       this.submit({obj: @.obj})
 
   return
-
-
 
 angular.module('client').component 'userModal',
   templateUrl: 'components/user_modal/index.html'
@@ -18,3 +17,4 @@ angular.module('client').component 'userModal',
     loading: "="
     toggle: "&"
     obj: "="
+    mode: "<"

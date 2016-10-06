@@ -8,6 +8,10 @@ module = ($resource)->
         url: "/api/users"
         method: 'get'
         isArray: false
+      searchList:
+        url: "/api/users/search"
+        method: 'get'
+        isArray: false
     }
 
 

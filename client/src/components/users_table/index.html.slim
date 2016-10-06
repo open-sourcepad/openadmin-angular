@@ -6,11 +6,35 @@ table.table.table-hover
       th Last Name
       th Status
       th
+      th
   tbody
+    tr
+      td
+        input(
+          ng-model="$ctrl.searchFilter.email"
+        )
+      td
+        input(
+          ng-model="$ctrl.searchFilter.first_name"
+        )
+      td
+        input(
+          ng-model="$ctrl.searchFilter.last_name"
+        )
+      td
+        select(
+          ng-model="$ctrl.searchFilter.is_active"
+          ng-options="opt.value as opt.name for opt in $ctrl.status"
+        )
+          option(value="")
+      td
+      td.action-td
+        a.icon.icon-search ng-click="$ctrl.search({obj: $ctrl.searchFilter})" Search
     tr ng-repeat="obj in $ctrl.collection"
       td ng-bind="obj.email"
       td ng-bind="obj.first_name"
       td ng-bind="obj.last_name"
+      td ng-bind="obj.is_active && 'Active' || 'Inactive'"
       td
       td.action-td
         a.icon.icon-pencil ng-click="$ctrl.edit({obj: obj})"

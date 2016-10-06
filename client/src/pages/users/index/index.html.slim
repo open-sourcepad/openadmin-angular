@@ -5,20 +5,28 @@
   .panel.light
     .panel-head
       .panel-action
-        a ng-click="toggleModal(null)"
+        a ng-click="toggleModal(null,'new')"
           i.icon.icon-plus
     .panel-body
       users-table(
         collection="collection"
-        edit="toggleModal(obj)"
+        edit="toggleModal(obj,'edit')"
         destroy="destroy(obj)"
+        search="search(obj)"
+      )
+    .panel-footer
+      pagination(
+        count="uiState.count"
+        page="uiState.page"
+        on-change="onChange(page)"
       )
 
 
 user-modal(
   obj="currentUser"
+  mode="uiState.mode"
   loading="uiState.loading"
-  toggle="toggleModal(null)"
+  toggle="toggleModal(null,'')"
   submit="save(obj)"
   ng-if="uiState.userModal"
 )
