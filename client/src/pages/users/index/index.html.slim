@@ -10,15 +10,17 @@
     .panel-body
       users-table(
         collection="collection"
+        search-filter="active_search"
+        page="uiState.page"
         edit="toggleModal(obj,'edit')"
         destroy="destroy(obj)"
-        search="search(obj)"
+        search="getData(page,user)"
       )
     .panel-footer
       pagination(
         count="uiState.count"
         page="uiState.page"
-        on-change="onChange(page)"
+        on-change="getData(page,active_search)"
       )
 
 

@@ -2,12 +2,7 @@ Ctrl = ->
   ctrl = this
 
   ctrl.$onInit = ->
-    @.searchFilter =
-      first_name: ""
-      last_name: ""
-      email: ""
-      is_active: ""
-      page: 1
+
     @.status =[
       {
         name: "Active"
@@ -26,6 +21,7 @@ angular.module('client').component 'usersTable',
   controller: Ctrl
   bindings:
     collection: "="
+    searchFilter: "="
     page: "="
     destroy: "&"
     edit: "&"

@@ -29,7 +29,7 @@ table.table.table-hover
           option(value="")
       td
       td.action-td
-        a.icon.icon-search ng-click="$ctrl.search({obj: $ctrl.searchFilter})" Search
+        a.icon.icon-search ng-click="$ctrl.search({page: $ctrl.page, user: $ctrl.searchFilter})" Search
     tr ng-repeat="obj in $ctrl.collection"
       td ng-bind="obj.email"
       td ng-bind="obj.first_name"

@@ -10,6 +10,9 @@ Ctrl = ($scope,$state,User,growl,Auth)->
     page: 1
 
   $scope.active_search =
+    email: ''
+    first_name: ''
+    last_name: ''
     is_active: null
     approved: null
     role: null
@@ -20,11 +23,17 @@ Ctrl = ($scope,$state,User,growl,Auth)->
 
   $scope.collection = []
 
-  $scope.getData =(page)->
-    User.getList(page: page).$promise
-      .then (data)->
-        $scope.collection = data.collection
-        $scope.uiState.count = data.count
+  $scope.getData =(page,user)->
+    if !!user
+      User.getList(page: page, email: user.email, first_name: user.first_name, last_name: user.last_name,is_active: user.is_active).$promise
+        .then (data)->
+          $scope.collection = data.collection
+          $scope.uiState.count = data.count
+    else
+      User.getList(page: page).$promise
+        .then (data)->
+          $scope.collection = data.collection
+          $scope.uiState.count = data.count
 
   $scope.save =(obj)->
     if $scope.uiState.mode is 'edit'
@@ -50,16 +59,6 @@ Ctrl = ($scope,$state,User,growl,Auth)->
         $scope.getData($scope.uiState.page)
       .catch (err)->
         debugger
-
-  $scope.search =(obj)->
-    User.searchList(obj).$promise
-      .then (data)->
-        $scope.collection = data.collection
-        $scope.uiState.count = data.count
-
-  $scope.onChange =(page)->
-    $scope.getData(page)
-
 
   $scope.toggleModal =(obj,mode)->
     if !!obj

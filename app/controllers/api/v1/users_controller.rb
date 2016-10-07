@@ -11,17 +11,7 @@ class Api::V1::UsersController < ApiController
   def index
     setPage(params[:page])
 
-    render_with_meta_data User.limit(@page*@perPage).offset((@page-1)*@perPage),User.count
-  end
-
-  def search
-    setPage(params[:page])
-
-    query = User.limit(@page*@perPage).offset((@page-1)*@perPage)
-    query = conditions(query,params)
-
-    render_with_meta_data query, query.count
-
+    render_with_meta_data User.conditions(params).limit(@perPage).offset((@page-1)*@perPage), User.conditions(params).count
   end
 
   def show
@@ -113,23 +103,6 @@ class Api::V1::UsersController < ApiController
 
   def setPage(page)
     @page = page.to_i
-  end
-
-  def conditions(query,params)
-    unless params[:email].blank?
-      query = query.where("email ilike ?", "%#{params[:email]}%")
-    end
-    unless params[:first_name].blank?
-      query = query.where("first_name ilike ?", "%#{params[:first_name]}%")
-    end
-    unless params[:last_name].blank?
-      query = query.where("last_name ilike ?", "%#{params[:last_name]}%")
-    end
-    unless params[:is_active].blank?
-      query = query.where("is_active = ?", params[:is_active])
-    end
-
-    return query
   end
 
 end

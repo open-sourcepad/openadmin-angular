@@ -17,5 +17,19 @@ class User < ApplicationRecord
     user if user.present? && user.valid_password?(creds[:password])
   end
 
+  def self.conditions(params)
+    query = "email ilike '%#{params[:email]}%'
+      AND first_name ilike '%#{params[:first_name]}%'
+      AND last_name ilike '%#{params[:last_name]}%'"
+
+    unless params[:is_active].blank?
+      query << " AND is_active = #{params[:is_active]}"
+    end
+
+    query = self.where(query)
+
+    return query
+  end
+
 
 end
