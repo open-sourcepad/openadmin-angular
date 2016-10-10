@@ -1,5 +1,8 @@
+Ctrl = ->
+  ctrl = this
 
 angular.module('client').filter 'range', ->
+  debugger
   (input, total) ->
     total = parseInt(total)
     i = 0
@@ -20,9 +23,11 @@ angular.module('client').directive "pagination", ->
 
   link: ($scope, element, attrs) ->
     $scope.$watch 'count', (newValue, oldValue) ->
+      debugger
       $scope.pageCount = Math.ceil($scope.count/DEFAULT_PER_PAGE)
-
+      $scope.pageCount = 1 if $scope.pageCount == 0
     $scope.queryPage =(params)->
+      debugger
       if params == 'prev'
         $scope.page--
       else if params == 'next'

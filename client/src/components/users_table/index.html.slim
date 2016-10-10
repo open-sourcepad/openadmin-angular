@@ -7,11 +7,30 @@ table.table.table-hover
       th Status
       th
   tbody
+    tr
+      td
+        input ng-model="$ctrl.searchFilter.email"
+      td
+        input ng-model="$ctrl.searchFilter.firstName"
+      td
+        input ng-model="$ctrl.searchFilter.lastName"
+      td
+        select ng-init="$ctrl.searchFilter.selectedStatus = $ctrl.searchFilter.status.All" ng-model="$ctrl.searchFilter.selectedStatus" ng-options="x for (x,y) in $ctrl.searchFilter.status"
+      td
+      td
+        button.search-button ng-click="$ctrl.changePage(1)" Search
     tr ng-repeat="obj in $ctrl.collection"
       td ng-bind="obj.email"
       td ng-bind="obj.first_name"
       td ng-bind="obj.last_name"
+      td ng-bind="obj.is_active && 'Active' || 'Inactive'"
       td
       td.action-td
         a.icon.icon-pencil ng-click="$ctrl.edit({obj: obj})"
         a.icon.icon-trash ng-click="$ctrl.destroy({obj: obj})"
+
+pagination(
+  count="$ctrl.count"
+  page="$ctrl.page"
+  on-change="$ctrl.changePage(page)"
+)

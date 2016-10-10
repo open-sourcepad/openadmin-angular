@@ -5,10 +5,11 @@ class Api::V1::UsersController < ApiController
   skip_before_action :authenticate_request, only: :create 
 
   def index
-    render_with_meta_data User.all,User.count
+    render_with_meta_data User.filter(filter_params).order(:email),getCount
   end
 
   def show
+    binding.pry
     render json: @obj
   end
 
@@ -91,8 +92,41 @@ class Api::V1::UsersController < ApiController
       state
       email
       password
+      is_active
     ))
   end
 
+  def filter_params
+    params.slice(
+      :email,
+      :firstName,
+      :lastName,
+      :selectedStatus,
+      :page
+    )
+  end
 
+  def count_params
+    params.slice(
+      :email,
+      :firstName,
+      :lastName,
+      :selectedStatus,
+    )
+  end
+
+  def getCount
+    if isFilter()
+      User.filter(count_params).count
+    else
+      User.count
+    end
+  end
+
+  def isFilter
+    params[:email].present? ||
+    params[:firstNamee].present? ||
+    params[:lastName].present? ||
+    params[:selectedStatus].present?
+  end
 end
