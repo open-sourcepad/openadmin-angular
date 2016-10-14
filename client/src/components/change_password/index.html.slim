@@ -1,0 +1,59 @@
+form name="changePassword" novalidate="true" autocomplete="off"
+
+  .editable-form
+    a ng-click="$ctrl.setEditMode()" ng-if="!$ctrl.editMode"
+      span.list-item-label
+        | Password
+      span.list-item-content
+        | ********
+      span.list-item-edit
+        icon.icon-pencil
+        span Edit
+
+  span ng-if="$ctrl.editMode"
+    span.list-item-label
+      | Password
+    
+    span.list-item-edit
+      icon.icon-check ng-click="$ctrl.submit(changePassword)" ng-class="{disabled: $ctrl.confirmPassword != $ctrl.newPassword || changePassword.$invalid}"
+      icon.icon-close ng-click="$ctrl.cancelEditMode()"
+      
+    ul.password-content
+      li
+        input(
+          ng-model="$ctrl.oldPassword"
+          name="OldPassword"
+          type="password"
+          ng-class="{disabled: !$ctrl.editMode}"
+          placeholder="Old Password"
+          required="false"
+          minlength="8"
+        )
+        p.error ng-show="changePassword.OldPassword.$dirty && changePassword.OldPassword.$error.required"
+          | *Required
+      li
+        input(
+          ng-model="$ctrl.newPassword"
+          name="NewPassword"
+          type="password"
+          ng-class="{disabled: !$ctrl.editMode}"
+          placeholder="New Password"
+          required="false"
+          minlength="8"
+        )
+        p.error ng-show="changePassword.NewPassword.$error.minlength"
+          | Too short
+      li
+        input(
+          ng-model="$ctrl.confirmPassword"
+          name="ConfirmPassword"
+          type="password"
+          ng-class="{disabled: !$ctrl.editMode}"
+          placeholder="Confirm Password"
+          required="false"
+          minlength="8"
+        )
+        p.error ng-show="changePassword.ConfirmPassword.$error.minlength"
+          | Too short
+        p.error ng-show="!changePassword.ConfirmPassword.$error.minlength && changePassword.ConfirmPassword.$dirty && $ctrl.confirmPassword != $ctrl.newPassword"
+          | Password do not match

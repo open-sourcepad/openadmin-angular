@@ -3,9 +3,7 @@ Ctrl = (User,growl)->
 
   ctrl.editMode = false
   ctrl.tempValue = angular.copy(ctrl.fieldValue)
-  debugger
   ctrl.$onInit = ->
-    debugger
     @.fieldType = if !!ctrl.fieldType then ctrl.fieldType else "text"
     @.fieldName = if !!ctrl.fieldName then ctrl.fieldName else ""
     @.fieldPlaceholder = if !!ctrl.fieldPlaceholder then ctrl.fieldPlaceholder else ctrl.fieldName
@@ -13,27 +11,21 @@ Ctrl = (User,growl)->
     @.editMode = if !!ctrl.editMode then ctrl.editMode else false
     return
 
-  ctrl.hasError = ->
-    return false unless !!@.form
-    return false unless @.form.$submitted
-    true if @.isRequired && (!@.fieldValue || @.fieldValue.trim() == '')
-
   ctrl.setEditMode = ->
-    debugger
+    ctrl.tempValue = angular.copy(ctrl.fieldValue)
     ctrl.editMode = true
 
   ctrl.cancelEditMode = ->
-    debugger
     ctrl.fieldValue = angular.copy(ctrl.tempValue)
     ctrl.editMode = false
 
   ctrl.submit =(form)->
-    debugger
-    User.update({id: ctrl.user.id, user: ctrl.user}).$promise
-      .then (data)->
-        debugger
-        growl.success(MESSAGES.UPDATE_SUCCESS)
-        ctrl.editMode = false
+    form.$submitted = true
+    if form.$valid
+      User.update({id: ctrl.user.id, user: ctrl.user}).$promise
+        .then (data)->
+          growl.success(MESSAGES.UPDATE_SUCCESS)
+          ctrl.editMode = false
 
   return
 
@@ -48,5 +40,4 @@ angular.module('client').component 'editProfileForm',
     fieldName: "@?"
     fieldPlaceholder: "@?"
     fieldLength: "@?"
-    form: "<"
     user: "<"

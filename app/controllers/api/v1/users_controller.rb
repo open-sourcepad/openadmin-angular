@@ -29,8 +29,8 @@ class Api::V1::UsersController < ApiController
   end
 
   def update_password
+    find_obj
     @service = Users::ChangePassword.new(@obj)
-    binding.pry
     if @service.process(params)
       render_success
     else
@@ -66,15 +66,6 @@ class Api::V1::UsersController < ApiController
     @obj = User.find_by(email: params[:email])
     @service = Users::ForgotPassword.new(@obj)
     if @service.send_reset_token
-      render_success
-    else
-      fail ServiceError
-    end
-  end
-
-  def update_password
-    @service = Users::ChangePassword.new(@obj)
-    if @service.process(params)
       render_success
     else
       fail ServiceError

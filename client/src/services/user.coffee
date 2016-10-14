@@ -4,6 +4,9 @@ module = ($resource)->
     {
       update:
         method: 'PUT'
+      updatePassword:
+        url: "/api/users/:id/update_password"
+        method: 'PUT'
       getList:
         url: "/api/users"
         method: 'get'
