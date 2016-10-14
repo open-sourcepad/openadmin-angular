@@ -20,7 +20,18 @@ class Api::V1::UsersController < ApiController
   end
 
   def update
+    binding.pry
     update_obj
+    binding.pry
+  end
+
+  def update_avatar
+    find_obj
+    if @obj.update_attributes(obj_params)
+      render json: {avatar: @obj.avatar.url(:thumb)}
+    else
+      obj_errors
+    end
   end
 
   def destroy
@@ -106,6 +117,7 @@ class Api::V1::UsersController < ApiController
       email
       password
       is_active
+      avatar
     ))
   end
 

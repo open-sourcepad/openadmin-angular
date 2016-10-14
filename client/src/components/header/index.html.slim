@@ -6,7 +6,7 @@
     ul.header-right
       li.header-dropdown  ng-class="{dropdowned: showDropdown}"
         a.user-info ng-click="toggleDropdown($event)"
-          i.icon.icon-user
+          img.header-avatar ng-src='{{currentUser.avatar}}'
 
         .dropdown ng-show="showDropdown"
           ul

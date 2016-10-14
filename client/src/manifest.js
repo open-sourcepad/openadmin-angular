@@ -14,6 +14,8 @@
 //= require angular-resource/angular-resource.min
 //= require angular-rails-templates
 //= require angular-growl-v2/build/angular-growl
+//= require ng-file-upload-shim
+//= require ng-file-upload
 
 //= require init
 //= require_tree ./config

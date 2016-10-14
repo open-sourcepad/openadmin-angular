@@ -14,7 +14,8 @@ module Sessions
         last_name: @current_user.last_name,
         id: @current_user.id,
         email: @current_user.email,
-        access_token: @current_user.access_token
+        access_token: @current_user.access_token,
+        avatar: @current_user.avatar.url(:thumb)
       }
     end
 

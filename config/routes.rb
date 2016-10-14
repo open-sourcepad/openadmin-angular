@@ -15,6 +15,7 @@ Rails.application.routes.draw do
         end
         member do
           put :update_password
+          put :update_avatar
         end
       end
     end

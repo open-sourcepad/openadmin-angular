@@ -1,6 +1,10 @@
 .form-container
   ul.profile-form-list
     li.profile-form-list-item
+      img ng-src="{{avatar}}"
+      br
+      input type="file" ngf-select="uploadFiles($file)" ng-model="picFile" name="file" ngf-accept="'image/*'"
+    li.profile-form-list-item
       edit-profile-form(
         field-name="First Name"
         field-value="$ctrl.user.first_name"
