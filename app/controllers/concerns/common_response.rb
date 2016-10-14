@@ -32,6 +32,7 @@ module CommonResponse
     #
     class ServiceError < StandardError; end
     rescue_from ServiceError do
+      binding.pry
       render json: {errors: @service.errors}, status: 422
     end
 
@@ -40,6 +41,7 @@ module CommonResponse
     #
     class InvalidRequestError < StandardError; end
     rescue_from InvalidRequestError do
+      binding.pry
       render json: {error: "Request is invalid"}, status: 422
     end
 

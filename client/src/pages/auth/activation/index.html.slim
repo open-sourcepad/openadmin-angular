@@ -1,0 +1,5 @@
+.panel-head
+  h1 ng-repeat="n in status"
+    | {{n}}
+.panel-body ng-if="showForm"
+  register-form register="register(user)" user="user" mode="activation"

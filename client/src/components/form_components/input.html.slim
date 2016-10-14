@@ -3,7 +3,8 @@ input.form-control(
   name="{{$ctrl.fieldName}}"
   type="{{$ctrl.fieldType}}"
   ng-enter="$ctrl.onEnter()"
-  ng-class="{error: $ctrl.hasError()}"
+  ng-class="{error: $ctrl.hasError(), disabled: $ctrl.hasValue}"
   placeholder="{{$ctrl.fieldPlaceholder}}"
   required="false"
+  minlength="{{$ctrl.fieldLength}}"
   )

@@ -1,0 +1,72 @@
+form name="profileForm" novalidate="true" autocomplete="off"
+
+  .form-container
+    ul
+      li
+        edit-profile-form(
+          field-name="First Name"
+          field-value="$ctrl.user.first_name"
+          field-type="text"
+          form="form"
+          user="$ctrl.user"
+        )
+      li
+        edit-profile-form(
+          field-name="Last Name"
+          field-value="$ctrl.user.last_name"
+          field-type="text"
+          form="form"
+          user="$ctrl.user"
+        )
+      li
+        edit-profile-form(
+          field-name="Email"
+          field-value="$ctrl.user.email"
+          field-type="email"
+          form="form"
+          user="$ctrl.user"
+        )
+      li
+        a ng-click="$ctrl.save()" ng-if="!ctrl.editMode"
+          span.list-item-label
+            | Password
+          span.list-item-content
+            | ********
+          span.list-item-edit
+            icon.icon-pencil
+            span Edit
+
+        span ng-if="$ctrl.editMode"
+          span.list-item-label
+            | Password
+
+          span.list-item-content
+            input(
+              ng-model="$ctrl.oldPassword"
+              name="Old Password"
+              type="password"
+              ng-class="{error: $ctrl.hasError(), disabled: !$ctrl.editMode}"
+              placeholder="Old Password"
+              required="false"
+              minlength="8"
+            )
+            input(
+              ng-model="$ctrl.newPassword"
+              name="New Password"
+              type="password"
+              ng-class="{error: $ctrl.hasError(), disabled: !$ctrl.editMode}"
+              placeholder="Old Password"
+              required="false"
+              minlength="8"
+            )
+            input(
+              ng-model="$ctrl.confirmPassword"
+              name="Confirm Password"
+              type="password"
+              ng-class="{error: $ctrl.hasError(), disabled: !$ctrl.editMode}"
+              placeholder="Old Password"
+              required="false"
+              minlength="8"
+            )
+            p.error ng-show="$ctrl.newPassword != $ctrl.confirmPassword"
+              | Password do not match

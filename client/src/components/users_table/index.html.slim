@@ -17,8 +17,8 @@ table.table.table-hover
       td
         select ng-init="$ctrl.searchFilter.selectedStatus = $ctrl.searchFilter.status.All" ng-model="$ctrl.searchFilter.selectedStatus" ng-options="x for (x,y) in $ctrl.searchFilter.status"
       td
-      td
-        button.search-button ng-click="$ctrl.changePage(1)" Search
+      td.action-td
+        a.icon.icon-magnifier ng-click="$ctrl.changePage(1)"
     tr ng-repeat="obj in $ctrl.collection"
       td ng-bind="obj.email"
       td ng-bind="obj.first_name"

@@ -4,9 +4,11 @@ Ctrl = ($scope, $element, $attrs) ->
   element = $element
 
   ctrl.$onInit = ->
+    debugger
     @.fieldType = if !!ctrl.fieldType then ctrl.fieldType else "text"
     @.fieldName = if !!ctrl.fieldName then ctrl.fieldName else ""
     @.fieldPlaceholder = if !!ctrl.fieldPlaceholder then ctrl.fieldPlaceholder else ctrl.fieldName
+    @.fieldLength = if !!ctrl.fieldLength then ctrl.fieldLength else ''
     return
 
   ctrl.hasError = ->
@@ -29,3 +31,5 @@ angular.module('client').component 'formInput',
     onEnter: "&"
     form: "<"
     isRequired: "@"
+    hasValue: "<"
+    fieldLength: "@?"

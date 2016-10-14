@@ -89,9 +89,9 @@ Ctrl = ($scope,$state,User,growl,Auth)->
     User.getList(
       {
         email: obj.email,
-        firstName: obj.firstName,
-        lastName: obj.lastName,
-        selectedStatus: obj.selectedStatus
+        first_name: obj.firstName,
+        last_name: obj.lastName,
+        is_active: obj.selectedStatus
         page: page
       }
     ).$promise

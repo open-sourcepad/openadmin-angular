@@ -23,4 +23,11 @@ angular.module('client').config [
         controller: 'RegisterCtrl'
         data:
           unauthenticated: true
+
+      .state 'auth.activation',
+        url: '/activation/:token',
+        templateUrl: 'pages/auth/activation/index.html'
+        controller: 'ActivationCtrl'
+        data:
+          unauthenticated: true
 ]

@@ -3,6 +3,7 @@ angular.module('client').factory('httpInterceptor', [
   ($q, $rootScope,$injector,growl) ->
     {
       responseError: (response) ->
+        debugger
         return if response.status not in [401,403,422,500]
         title = response.data.message or 'Oops!'
         message = response.data.error or response.data.errors?.join("<br><br>") or 'Something went wrong'

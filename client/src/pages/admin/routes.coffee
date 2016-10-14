@@ -13,6 +13,11 @@ angular.module('client').config [
         data:
           authenticated: true
 
+      .state 'admin.profile',
+        url: '/profile',
+        templateUrl: 'pages/admin/profile/index.html'
+        controller: 'ProfileCtrl'
+
       .state 'admin.dashboard',
         url: '/dashboard',
         templateUrl: 'pages/dashboard/index.html'

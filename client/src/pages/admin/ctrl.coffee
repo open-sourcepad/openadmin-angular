@@ -7,7 +7,7 @@ Ctrl = ($scope,$state,Session,growl,$window,Auth)->
     creds: {}
 
   $scope.currentUser = Auth.getUser()
-
+  
   $scope.logout = ->
     $scope.ctrl.loading = true
     Session.logout().$promise
@@ -15,6 +15,8 @@ Ctrl = ($scope,$state,Session,growl,$window,Auth)->
         Auth.removeUser()
         growl.success(MESSAGES.LOGOUT_SUCCESS)
         $state.go("auth.login")
+
+  return
 
 Ctrl.$inject = ['$scope','$state','Session','growl','$window','Auth']
 angular.module('client').controller('AdminCtrl', Ctrl)

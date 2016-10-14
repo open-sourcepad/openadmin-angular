@@ -39,25 +39,6 @@
             form="form"
           )
 
-        .form-group ng-if="$ctrl.mode == 'new'"
-          label Password
-          form-input(
-            field-name="Password"
-            field-value="$ctrl.obj.password"
-            field-placeholder="Password"
-            on-enter="$ctrl.onSubmit(form)"
-            is-required="true"
-            field-type="password"
-            form="form"
-          )
-
-        .form-group
-          label Status
-          input(
-            type="checkbox"
-            ng-model="$ctrl.obj.is_active"
-          ) | Active
-
     .modal-footer
       .row
         .col-md-12

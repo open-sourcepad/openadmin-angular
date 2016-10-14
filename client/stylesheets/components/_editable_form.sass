@@ -1,0 +1,51 @@
+.form-container
+  ul
+    list-style: none
+    width: 400px
+    margin-left: 80px
+    padding: 0px
+
+    li
+      padding-top: 10px
+      padding-bottom: 10px
+      border-bottom: 1px solid gray
+      &:first-child
+        border-top: 1px solid gray
+
+.editable-form
+  a
+    &:hover
+      cursor: pointer
+      .list-item-edit
+        icon
+          visibility: visible
+        span
+          text-decoration: underline
+
+.list-item-label
+  float: left
+  display: block
+  color: black
+  width: 150px
+
+.list-item-content
+  font-weight: bold
+  text-align: left
+  width: 200px
+
+.list-item-edit
+  float: right
+  width: 50px
+  icon.icon-pencil
+    display: inline-block
+    visibility: hidden
+
+.icon-check, .icon-close
+  font-size: 1.5em
+  padding-right: 10px
+
+.icon-check
+  color: green
+
+.icon-close
+  color: red

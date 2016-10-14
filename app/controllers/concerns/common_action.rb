@@ -10,6 +10,7 @@ module CommonAction
   end
 
   def update_obj
+    binding.pry
     if @obj.update_attributes(obj_params)
       render json: {success: true}
     else

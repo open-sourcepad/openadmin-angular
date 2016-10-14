@@ -4,6 +4,7 @@ module = ($resource,Session)->
     getUser: ->
       return user
     setUser: (obj) ->
+      debugger
       user = obj
       return
     removeUser: ->

@@ -2,10 +2,10 @@ class Api::V1::UsersController < ApiController
 
   before_filter :find_obj, only: [:update,:show,:delete]
   before_filter :find_user_by_token, only: [:verify_reset_token,:reset_password]
-  skip_before_action :authenticate_request, only: :create 
+  skip_before_action :authenticate_request, only: [:create,:activate_user,:activation_password]
 
   def index
-    render_with_meta_data User.filter(filter_params).order(:email),getCount
+    render_with_meta_data User.filter(filter_params),getCount
   end
 
   def show
@@ -16,6 +16,7 @@ class Api::V1::UsersController < ApiController
   def create
     @obj = User.new(obj_params)
     create_obj
+    @obj.set_email_verification_token
   end
 
   def update
@@ -29,10 +30,18 @@ class Api::V1::UsersController < ApiController
 
   def update_password
     @service = Users::ChangePassword.new(@obj)
+    binding.pry
     if @service.process(params)
       render_success
     else
       fail ServiceError
+    end
+  end
+
+  def activation_password
+    find_obj
+    if @obj.update_attributes(obj_params)
+      render json: {success: true, token: @obj.email_verification_token}
     end
   end
 
@@ -72,6 +81,15 @@ class Api::V1::UsersController < ApiController
     end
   end
 
+  def activate_user
+    @service = Users::SignUp.new(User.find_by(email_verification_token: params[:token]))
+    if @service.process
+      render json: {success: true, user: @service.user}
+    else
+      render json: {errors: @service.errors, user: @service.user}
+    end
+  end
+
   private
 
   def find_user_by_token
@@ -80,6 +98,10 @@ class Api::V1::UsersController < ApiController
 
   def find_obj
     @obj = User.find(params[:id])
+  end
+
+  def activate
+    @obj.update
   end
 
   def obj_params
@@ -99,9 +121,9 @@ class Api::V1::UsersController < ApiController
   def filter_params
     params.slice(
       :email,
-      :firstName,
-      :lastName,
-      :selectedStatus,
+      :first_name,
+      :last_name,
+      :is_active,
       :page
     )
   end
@@ -109,9 +131,9 @@ class Api::V1::UsersController < ApiController
   def count_params
     params.slice(
       :email,
-      :firstName,
-      :lastName,
-      :selectedStatus,
+      :first_name,
+      :last_name,
+      :is_active
     )
   end
 
@@ -125,8 +147,9 @@ class Api::V1::UsersController < ApiController
 
   def isFilter
     params[:email].present? ||
-    params[:firstNamee].present? ||
-    params[:lastName].present? ||
-    params[:selectedStatus].present?
+    params[:first_name].present? ||
+    params[:last_name].present? ||
+    params[:is_active].present?
   end
+
 end

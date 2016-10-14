@@ -7,6 +7,7 @@ form name="registerForm" novalidate="true" autocomplete="off"
       field-type="text"
       on-enter="$ctrl.submit(registerForm)"
       is-required="true"
+      has-value="$ctrl.user.first_name && $ctrl.mode == 'activation'"
       form="form"
     )
 
@@ -17,6 +18,7 @@ form name="registerForm" novalidate="true" autocomplete="off"
       field-type="text"
       on-enter="$ctrl.submit(registerForm)"
       is-required="true"
+      has-value="$ctrl.user.last_name && $ctrl.mode == 'activation'"
       form="form"
     )
 
@@ -27,6 +29,7 @@ form name="registerForm" novalidate="true" autocomplete="off"
       field-type="email"
       on-enter="$ctrl.submit(registerForm)"
       is-required="true"
+      has-value="$ctrl.user.email && $ctrl.mode == 'activation'"
       form="form"
     )
 
@@ -38,11 +41,11 @@ form name="registerForm" novalidate="true" autocomplete="off"
       on-enter="$ctrl.submit(registerForm)"
       is-required="true"
       form="form"
+      field-length="8"
     )
 
   .submit-form-row
     a.btn.btn-dark.btn-block.text-left ng-click="$ctrl.submit(registerForm)" ng-class="{disabled: registerForm.$invalid}" Register
 
   .submit-form-row
-    a.btn.btn-block.text-left href="auth/login" ng-class="{disabled: 
-    $ctrl.loading}" Log In
+    a.btn.btn-block.text-left href="auth/login" ng-class="{disabled: $ctrl.loading}" Log In

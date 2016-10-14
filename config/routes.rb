@@ -10,6 +10,8 @@ Rails.application.routes.draw do
           put :forgot_password
           put :reset_password
           get :verify_reset_token
+          put :activate_user
+          put :activation_password
         end
         member do
           put :update_password

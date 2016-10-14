@@ -8,6 +8,12 @@ module = ($resource)->
         url: "/api/users"
         method: 'get'
         isArray: false
+      activate:
+        url: "/api/users/activate_user"
+        method: 'PUT'
+      activation_password:
+        url: "/api/users/activation_password"
+        method: 'PUT'
     }
 
 

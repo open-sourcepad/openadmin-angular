@@ -4,9 +4,11 @@ Ctrl = ($scope,$state,Session,growl,$http,Auth)->
     loading: false
 
   $scope.login =(creds)->
+    debugger
     $scope.uiState.loading = true
     Session.login(credentials: creds).$promise
       .then (data) ->
+        debugger
         Auth.setUser(data)
         Session.setSession(data)
         Session.setHeaders(data)

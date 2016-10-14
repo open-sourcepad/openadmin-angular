@@ -1,0 +1,31 @@
+form name="editProfileForm" novalidate="true" autocomplete="off"
+
+  .editable-form
+    a ng-click="$ctrl.setEditMode()" ng-if="!$ctrl.editMode"
+      span.list-item-label
+        | {{$ctrl.fieldName}}
+      span.list-item-content
+        | {{$ctrl.fieldValue}}
+      span.list-item-edit
+        icon.icon-pencil
+        span Edit
+
+    span ng-if="$ctrl.editMode"
+      span.list-item-label
+        | {{$ctrl.fieldName}}
+
+      span.list-item-content
+        input(
+          ng-model="$ctrl.fieldValue"
+          name="{{$ctrl.fieldName}}"
+          type="{{$ctrl.fieldType}}"
+          ng-enter="$ctrl.submit(editProfileForm)"
+          ng-class="{error: $ctrl.hasError(), disabled: !$ctrl.editMode}"
+          placeholder="{{$ctrl.fieldPlaceholder}}"
+          required="false"
+          minlength="{{$ctrl.fieldLength}}"
+        )
+
+      span.list-item-edit
+        icon.icon-check ng-click="$ctrl.submit(editProfileForm)"
+        icon.icon-close ng-click="$ctrl.cancelEditMode()"

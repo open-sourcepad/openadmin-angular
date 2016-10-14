@@ -2,11 +2,13 @@ Ctrl = ->
   ctrl = this
 
   ctrl.$onInit = ->
-    @.user =
-      first_name: ""
-      last_name: ""
-      email: ""
-      password: ""
+    debugger
+    if !@.user
+      @.user =
+        first_name: ""
+        last_name: ""
+        email: ""
+        password: ""
 
   ctrl.submit =(form)->
     debugger
@@ -22,3 +24,5 @@ angular.module('client').component 'registerForm',
   controller: Ctrl
   bindings:
     register: "&"
+    user: "="
+    mode: "@"
