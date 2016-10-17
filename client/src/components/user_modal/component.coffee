@@ -1,8 +1,9 @@
 Ctrl = ->
   ctrl = this
-
+  ctrl.$onInit =->
+    if @.mode == 'new'
+      @.obj.is_active = true
   ctrl.onSubmit =(form)->
-    @.status
     form.$submitted = true
     if form.$valid
       this.submit({obj: @.obj})

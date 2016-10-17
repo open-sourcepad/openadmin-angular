@@ -4,12 +4,13 @@
   top: 0
   height: 100%
   width: $sidebar-offset
-  background: $dark
+  background: $white
   text-align: center
   overflow: auto
   overflow-x: hidden
   transition: all .4s ease 0s
-  +box-shadow((0 0 .0625rem rgba(0,0,0,.075),0 .0625rem .125rem rgba(0,0,0,.25)))
+  +box-shadow(0px 1px 9px 1px rgba(0, 0, 0, 0.11))
+  //+box-shadow((0 0 .0625rem rgba(0,0,0,.075),0 .0625rem .125rem rgba(0,0,0,.25)))
   .logo
     min-height: 40px
     margin: 10px 0px
@@ -24,22 +25,31 @@
       display: block
       &.filler
         min-height: 53px
-        background-color: mix(white, $primary, 15%)
+        background-color: $white
       a
         text-align: left
         padding: 15px 30px
         position: relative
         display: block
         font-weight: 400
-        color: $gray
-        border-bottom: 1px solid #313437
+        color: $light-green
+        border-bottom: 1px solid $clean
+        &.filler
+          text-align: center
+          min-height: 53px
+          &:before
+            display: none
+          i
+            display: none
+          h4
+            display: inline
         &:hover
           color: $white
-          //background-color: mix(white, $gray, 97%)
+          background-color: $light-green
         &.active
-          //background-color: mix(white, $gray, 97%)
+          background-color: $light-green
           color: $white
-          //font-weight: 600
+          font-weight: 600
           &:before
             background: $primary
             box-shadow: 0 0 0 1px $primary
@@ -69,12 +79,13 @@
         a
           padding: 10px 57px
           &:hover
-            background-color: mix(white, $gray, 99%)
+            background-color: $light-green
           &:before
             content: none
 
 body.condensed .sidebar
   width: 80px
+  +box-shadow(0px 1px 9px 1px rgba(0, 0, 0, 0.11))
   .logo img
     width: 65px
   ul
@@ -89,13 +100,21 @@ body.condensed .sidebar
         position: relative
         display: block
         font-weight: 400
-        color: #979898
-        border-bottom: 1px solid #313437
+        color: $light-green
+        border-bottom: 1px solid $clean
+        &.filler
+          min-height: 53px
+          i
+            display: inline
         &:before
           content: none
         &:hover
           color: $white
+          background-color: $light-green
         &.active
           color: $white
+          background-color: $light-green
         span
+          display: none
+        h4
           display: none

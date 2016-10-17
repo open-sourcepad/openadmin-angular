@@ -1,6 +1,10 @@
 Ctrl =($scope,SidebarToggles,Auth,$rootScope)->
 
   $scope.currentUser = Auth.getUser()
+
+  $scope.toggleSidebar = ->
+    SidebarToggles.toggle()
+
   $scope.setActive =(active)->
     if active == $rootScope.activeSidebar
       $rootScope.activeSidebar = ""

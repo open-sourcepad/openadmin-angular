@@ -8,28 +8,31 @@ table.table.table-hover
       th
       th
   tbody
-    tr
+    tr.search-field
       td
-        input(
+        input.form-control.search(
           ng-model="$ctrl.searchFilter.email"
+          placeholder="Email"
         )
       td
-        input(
+        input.form-control.search(
           ng-model="$ctrl.searchFilter.first_name"
+          placeholder="Firstname"
         )
       td
-        input(
+        input.form-control.search(
           ng-model="$ctrl.searchFilter.last_name"
+          placeholder="Lastname"
         )
       td
-        select(
+        select.form-control.search(
           ng-model="$ctrl.searchFilter.is_active"
           ng-options="opt.value as opt.name for opt in $ctrl.status"
         )
           option(value="")
       td
       td.action-td
-        a.icon.icon-search ng-click="$ctrl.search({page: $ctrl.page, user: $ctrl.searchFilter})" Search
+        a.icon.icon-magnifier ng-click="$ctrl.search({page: $ctrl.page=1, user: $ctrl.searchFilter})"
     tr ng-repeat="obj in $ctrl.collection"
       td ng-bind="obj.email"
       td ng-bind="obj.first_name"

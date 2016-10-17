@@ -11,7 +11,7 @@ module CommonAction
 
   def update_obj
     if @obj.update_attributes(obj_params)
-      render json: {success: true}
+      render json: {success: true, img_url: @obj.avatar.url(:thumb)}
     else
       obj_errors
     end

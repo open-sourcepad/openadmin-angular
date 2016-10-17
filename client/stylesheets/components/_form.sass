@@ -6,11 +6,19 @@
   padding: 5px 5px
   height: 40px
   border: 0px
-  border-bottom: 1px solid $dark
+  border-bottom: 1px solid $clean
+  &.search
+    width: 93%
+    height: 25px
+    border: 1px solid $clean
+    &:focus
+      outline: none
+      border: 1px solid mix(white, $light-green, 70%)
+      +transition(all 0.3s)
   &:focus
     outline: none
-    border-bottom: 1px solid mix(white, $dark, 70%)
-    box-shadow: 0 1px 0 0 $dark
+    border-bottom: 1px solid mix(white, $light-green, 70%)
+    box-shadow: 0 1px 0 0 $light-green
     +transition(all 0.3s)
     &.error
       border-bottom: 1px solid $danger
@@ -27,12 +35,8 @@
 .disabled input
   cursor: default !important
   pointer-events: none !important
-  color: white !important
-  background-color: $gray !important
-
-.input-dark
-  background: #313334
-  color: $white
+  color: $clean !important
+  background-color: mix(white, $gold ,78%) !important
 
 select
   text-transform: none
@@ -48,9 +52,22 @@ label
   margin-bottom: 5px
   padding-left: 1px
   display: block
+  &.label-inline
+    display: inline
 
 input.disabled
   color: $gray !important
 
 i.fa
   font-size: 20px
+
+.form-error
+  display: inline
+  p.error
+    color: $danger
+    font-size: 12px
+    line-height: 3.42857
+    display: inline-block
+    position: absolute
+    right: 11px
+    font-weight: bold

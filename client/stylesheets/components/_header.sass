@@ -5,10 +5,11 @@
   z-index: 1000
 
 .header
-  background: $primary
+  background: $white
   min-height: 55px
   border-bottom: 1px solid $border
   padding-left: 250px
+  +box-shadow(0px 1px 9px 1px rgba(0, 0, 0, 0.11))
 
 .header-right
   float: right
@@ -19,7 +20,7 @@
     padding: 9px
     a
       display: block
-      color: $white
+      color: $gray
       font-size: 18px
       padding: 4px 7px
 
@@ -27,29 +28,34 @@
   position: relative
   &.dropdowned
     background-color: rgba(255,255,255,.1)
+    a
+      color: $light-green
   .dropdown
     position: absolute
     top: 54px
     right: -5px
-    background-color: $white
-    border: 1px solid $border
+    background-color: $light-green
+    border: 1px solid mix(black, $white ,15%)
     border-radius: 2px
     border-top: 0px
+    opacity: 0.8
     ul
       +ul-reset
       width: 150px
       li
-        border-bottom: 1px solid $border
+        border-bottom: 1px solid $gray-mid
         display: block
         padding: 0px
         &:first-child
-          border-top: 1px solid $border
+          border-top: 1px solid $gray-mid
+        &:hover
+          background-color: mix(black, $light-green ,15%)
         a
           font-size: 12px
           padding: 10px
           font-weight: bold
           display: block
-          color: $gray
+          color: $white
           &:hover
             border: 0px
         &:last-child

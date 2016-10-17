@@ -17,6 +17,10 @@ module Authenticable
 
   end
 
+  def set_active
+    self.update_attributes(is_active: true)
+  end
+
   def password=(new_password)
     @password = new_password
     self.encrypted_password = encrypt(@password) if @password.present?

@@ -1,8 +1,8 @@
 class Api::V1::UsersController < ApiController
 
-  before_filter :find_obj, only: [:update,:show,:delete]
-  before_filter :find_user_by_token, only: [:verify_reset_token,:reset_password]
-  skip_before_action :authenticate_request, only: :create
+  before_action :find_obj, only: [:update,:show,:delete,:update_password,:update_avatar]
+  before_action :find_user_by_token, only: [:verify_reset_token,:reset_password]
+  skip_before_action :authenticate_request, only: [:create, :forgot_password, :verify_reset_token, :reset_password]
 
   def initialize
     @perPage = 5
@@ -15,7 +15,7 @@ class Api::V1::UsersController < ApiController
   end
 
   def show
-    render json: @obj
+    render json: {collection: @obj, image_url: @obj.avatar.url(:thumb)}
   end
 
   def create
@@ -68,13 +68,8 @@ class Api::V1::UsersController < ApiController
     end
   end
 
-  def update_password
-    @service = Users::ChangePassword.new(@obj)
-    if @service.process(params)
-      render_success
-    else
-      fail ServiceError
-    end
+  def update_avatar
+    update_obj
   end
 
   private
@@ -98,6 +93,7 @@ class Api::V1::UsersController < ApiController
       email
       password
       is_active
+      avatar
     ))
   end
 

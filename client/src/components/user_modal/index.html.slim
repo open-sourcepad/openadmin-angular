@@ -1,66 +1,84 @@
 .modal.open
   .modal-dialog.fade
-    .modal-header
-      a.btn-close ng-click="$ctrl.toggle()" ×
-      h2 User
+      .modal-header
+        a.btn-close ng-click="$ctrl.toggle()" ×
+        h2 ng-if="$ctrl.mode == 'new'" Create User
+        h2 ng-if="$ctrl.mode == 'edit'" Edit User
 
-    .modal-body
-      form name="form"
-        .form-group
-          label First Name
+      .modal-body
+        form name="form"
+          .form-group
+            label First Name
+            form-input(
+              field-name="Firstname"
+              field-value="$ctrl.obj.first_name"
+              field-placeholder="First Name"
+              on-enter="$ctrl.onSubmit(form)"
+              is-required="true"
+              field-type="text"
+              form="form"
+            )
+            .form-error
+              p.error ng-show="form.Firstname.$error.required"
+                | *Required
 
-          form-input(
-            field-name="First Name"
-            field-value="$ctrl.obj.first_name"
-            field-placeholder="First Name"
-            on-enter="$ctrl.onSubmit(form)"
-            form="form"
-          )
+          .form-group
+            label Last Name
+            form-input(
+              field-name="Lastname"
+              field-value="$ctrl.obj.last_name"
+              field-placeholder="Last Name"
+              on-enter="$ctrl.onSubmit(form)"
+              is-required="true"
+              field-type="text"
+              form="form"
+            )
+            .form-error
+              p.error ng-show="form.Lastname.$error.required"
+                | *Required
 
-        .form-group
-          label Last Name
-          form-input(
-            field-name="Last Name"
-            field-value="$ctrl.obj.last_name"
-            field-placeholder="Last Name"
-            on-enter="$ctrl.onSubmit(form)"
-            form="form"
-          )
+          .form-group
+            label Email
+            form-input(
+              field-name="Email"
+              field-value="$ctrl.obj.email"
+              field-placeholder="Email"
+              on-enter="$ctrl.onSubmit(form)"
+              is-required="true"
+              field-type="email"
+              form="form"
+            )
+            .form-error
+              p.error ng-show="form.Email.$error.required"
+                | *Required
 
-        .form-group
-          label Email
-          form-input(
-            field-name="Email"
-            field-value="$ctrl.obj.email"
-            field-placeholder="Email"
-            on-enter="$ctrl.onSubmit(form)"
-            is-required="true"
-            field-type="email"
-            form="form"
-          )
+          .form-group ng-if="$ctrl.mode == 'new'"
+            label Password
+            form-input(
+              field-name="Password"
+              field-value="$ctrl.obj.password"
+              field-placeholder="Password"
+              on-enter="$ctrl.onSubmit(form)"
+              is-required="true"
+              field-type="password"
+              form="form"
+              field-length="8"
+            )
+            .form-error
+              p.error ng-show="form.Password.$error.required"
+                | *Required
+              p.error ng-show="form.Password.$error.minlength" Password must be 8 characters.
 
-        .form-group ng-if="$ctrl.mode == 'new'"
-          label Password
-          form-input(
-            field-name="Password"
-            field-value="$ctrl.obj.password"
-            field-placeholder="Password"
-            on-enter="$ctrl.onSubmit(form)"
-            is-required="true"
-            field-type="password"
-            form="form"
-          )
-
-        .form-group
-          label Status
-          input(
-            type="checkbox"
-            ng-model="$ctrl.obj.is_active"
-            name="Status"
-          )   Active
-
-
-    .modal-footer
-      .row
-        .col-md-12
-          a.btn.btn-success.pull-right ng-click="$ctrl.onSubmit(form)" ng-class="{disabled: $ctrl.loading}" Save
+          .form-group
+            label Status
+            label
+              input(
+                type="checkbox"
+                ng-model="$ctrl.obj.is_active"
+                name="Status"
+              )  Active
+      .modal-footer
+        .row
+          .col-md-12
+            a.btn.btn-danger.pull-right ng-click="$ctrl.toggle()" Cancel
+            a.btn.btn-success.pull-right ng-click="$ctrl.onSubmit(form)" ng-class="{disabled: $ctrl.loading}" Save

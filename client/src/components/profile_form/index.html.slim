@@ -1,0 +1,98 @@
+form name="profileForm"
+  .form-group
+    label Firstname
+    form-input(
+      field-name="Firstname"
+      field-value="$ctrl.obj.first_name"
+      field-placeholder="Firstname"
+      is-required="true"
+      field-type="text"
+      form="profileForm"
+    )
+    .form-error
+      p.error ng-show="profileForm.Firstname.$error.required"
+        | *Required
+
+  .form-group
+    label Lastname
+    form-input(
+      field-name="Lastname"
+      field-value="$ctrl.obj.last_name"
+      field-placeholder="Lastname"
+      is-required="true"
+      field-type="text"
+      form="profileForm"
+    )
+    .form-error
+      p.error ng-show="profileForm.Lastname.$error.required"
+        | *Required
+
+  .form-group
+    label Email
+    form-input(
+      field-name="Email"
+      field-value="$ctrl.obj.email"
+      field-placeholder="Email"
+      is-required="true"
+      field-type="email"
+      form="profileForm"
+      field-pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+    )
+    .form-error
+      p.error ng-show="profileForm.Email.$error.required"
+        | *Required
+      p.error ng-show="profileForm.Email.$error.pattern" Invalid Email address
+
+  .form-group
+    label.label-inline Password
+    a.icon.icon-pencil ng-click="$ctrl.changeState($ctrl.uiState.password)"
+    span
+      | *****
+.row
+  .col-md-12
+    a.btn.btn-success.pull-right ng-click="$ctrl.onSubmit(profileForm,'detail')" ng-class="{disabled: profileForm.$pristine || profileForm.$invalid}" Save
+    a.btn.btn-danger.pull-right ng-click="$ctrl.deactivate($ctrl.obj.is_active)" ng-class="{disabled: $ctrl.loading}" Deactivate
+
+
+.modal.open ng-hide="$ctrl.uiState.password"
+  .modal-dialog
+    .modal-header
+      a.btn-close ng-click="$ctrl.changeState($ctrl.uiState.password)" ×
+      h2 Change Password
+    .modal-body
+      form name="passwordForm"
+        .form-group
+          form-input(
+            field-name="OldPassword"
+            field-value="$ctrl.change.old_password"
+            field-placeholder="Old Password"
+            is-required="true"
+            field-type="password"
+            form="passwordForm"
+            field-length="8"
+          )
+        .form-group
+          form-input(
+            field-name="NewPassword"
+            field-value="$ctrl.change.new_password"
+            field-placeholder="New Password"
+            is-required="true"
+            field-type="password"
+            form="passwordForm"
+            field-length="8"
+          )
+        .form-group
+      form-input(
+        field-name="ConfirmPassword"
+        field-value="$ctrl.change.confirm_password"
+        field-placeholder="Confirm New Password"
+        on-enter="$ctrl.onSubmit(passwordForm)"
+        is-required="true"
+        field-type="password"
+        form="passwordForm"
+        field-length="8"
+      )
+    .modal-footer
+      .row
+        .col-md-12
+          a.btn.btn-success.pull-right ng-click="$ctrl.onSubmit(passwordForm,'password')" ng-class="{disabled: passwordForm.$pristine}" Change Password

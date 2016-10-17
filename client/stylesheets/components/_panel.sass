@@ -1,23 +1,22 @@
 .panel
-  background-color: $primary
+  background-color: $white
   padding: 20px
-  border-radius: 1px
+  border-radius: 10px
   position: relative
-  +transition(all 0.2s ease-in-out)
-  &.light
-    background-color: $white
+  //+transition(all 0.2s ease-in-out)
   &:hover
     +box-shadow((0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)))
   .panel-head
-    border-bottom: 1px solid $border
+    border-bottom: 1px solid $gold
     h1,h2
       margin: 15px 0px
       text-transform: uppercase
-      font-weight: 200
+      font-weight: 400
       font-size: 1.4em
     .panel-action
       min-height: 40px
       a
+        color: $gold
         position: absolute
         top: 15px
         right: 15px
@@ -31,7 +30,8 @@
       padding: 0px
   .panel-footer
     min-height: 30px
-    padding-left: 15px
     a
-      color: $white
-      font-size: 15px
+      color: $gold
+      font-size: 14px
+      &.list
+        display: block

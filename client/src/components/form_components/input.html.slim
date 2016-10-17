@@ -6,4 +6,6 @@ input.form-control.input-dark(
   ng-class="{error: $ctrl.hasError()}"
   placeholder="{{$ctrl.fieldPlaceholder}}"
   required="false"
+  minlength="{{$ctrl.fieldLength}}"
+  pattern="{{$ctrl.fieldPattern}}"
   )

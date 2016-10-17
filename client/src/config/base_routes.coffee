@@ -20,17 +20,17 @@ angular.module('client').config [
     #     data:
     #       unauthenticated: true
 
-      .state 'admin',
-        url: '/admin',
-        templateUrl: 'pages/admin/index.html'
-        controller: 'AdminCtrl'
-        abstract: true
-        data:
-          authenticated: true
-
-      .state 'admin.dashboard',
-        url: '/dashboard',
-        templateUrl: 'pages/dashboard/index.html'
-        controller: 'DashboardCtrl'
+      # .state 'admin',
+      #   url: '/admin',
+      #   templateUrl: 'pages/admin/index.html'
+      #   controller: 'AdminCtrl'
+      #   abstract: true
+      #   data:
+      #     authenticated: true
+      #
+      # .state 'admin.dashboard',
+      #   url: '/dashboard',
+      #   templateUrl: 'pages/dashboard/index.html'
+      #   controller: 'DashboardCtrl'
 
 ]

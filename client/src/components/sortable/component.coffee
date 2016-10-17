@@ -1,12 +1,14 @@
 Ctrl = ->
   ctrl = this
 
-  ctrl.sort = (orderBy) ->
+  ctrl.sort =(orderBy)->
+    debugger
     if ctrl.order.by == orderBy
       ctrl.order.direction = !ctrl.order.direction
     else
       ctrl.order.by = orderBy
       ctrl.order.direction = false
+    @.sorted()
 
   ctrl.assessSort = ->
     if @.order && @.order.by == @.columnName
@@ -26,3 +28,4 @@ angular.module('client').component 'sortable',
     columnName: "@"
     order: "="
     label: "@"
+    sorted: "&"

@@ -1,0 +1,11 @@
+.page-title
+  .title Profile
+
+.inner-container
+  .panel
+    .panel-body
+      img.profile ng-src="{{currentUser.image_url}}"
+      a ng-click="deleteAvatar()" delete picture
+      input type="file" ng-model="myFile" ngf-select=""
+      button ng-click="upload(myFile)" Upload
+      profile-form obj="currentUser" update="updateUser(obj,password,type)"

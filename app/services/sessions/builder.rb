@@ -12,7 +12,10 @@ module Sessions
       {
         id: @current_user.id,
         email: @current_user.email,
-        access_token: @current_user.access_token
+        access_token: @current_user.access_token,
+        first_name: @current_user.first_name,
+        last_name: @current_user.last_name,
+        image_url: @current_user.avatar.url(:thumb)
       }
     end
 

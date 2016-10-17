@@ -9,6 +9,10 @@ form name="registerForm" novalidate="true" autocomplete="off"
       is-required="true"
       form="form"
     )
+    .form-error
+      p.error ng-show="registerForm.Firstname.$error.required"
+        | *Required
+
   .form-group
     form-input(
       field-name="Lastname"
@@ -18,6 +22,10 @@ form name="registerForm" novalidate="true" autocomplete="off"
       is-required="true"
       form="form"
     )
+    .form-error
+      p.error ng-show="registerForm.Lastname.$error.required"
+        | *Required
+
   .form-group
     form-input(
       field-name="Email"
@@ -27,6 +35,10 @@ form name="registerForm" novalidate="true" autocomplete="off"
       is-required="true"
       form="form"
     )
+    .form-error
+      p.error ng-show="registerForm.Email.$error.required"
+        | *Required
+
   .form-group
     form-input(
       field-name="Password"
@@ -35,6 +47,12 @@ form name="registerForm" novalidate="true" autocomplete="off"
       on-enter="$ctrl.submit(registerForm)"
       is-required="true"
       form="form"
+      field-length="8"
     )
+    .form-error
+      p.error ng-show="registerForm.Password.$error.required"
+        | *Required
+      p.error ng-show="registerForm.Password.$error.minlength" Password must be 8 characters.
+
   .submit-form-row
-    a.btn.btn-primary.btn-block.text-left ng-click="$ctrl.submit(registerForm)" ng-class="{disabled: registerForm.$invalid}" Register
+    a.btn.btn-primary.btn-block ng-click="$ctrl.submit(registerForm)" ng-class="{disabled: registerForm.$invalid}" Register

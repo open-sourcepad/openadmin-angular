@@ -8,6 +8,7 @@ angular.module(
     'ngAnimate',
     'ngEnter',
     'angular-growl',
-    'NgActive'
+    'NgActive',
+    'ngFileUpload'
   ]
 )

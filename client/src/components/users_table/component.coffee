@@ -2,17 +2,7 @@ Ctrl = ->
   ctrl = this
 
   ctrl.$onInit = ->
-
-    @.status =[
-      {
-        name: "Active"
-        value: true
-      }
-      {
-        name: "Inactive"
-        value: false
-      }
-    ]
+    @.status = STATUS_OPTIONS
 
   return
 
@@ -22,6 +12,7 @@ angular.module('client').component 'usersTable',
   bindings:
     collection: "="
     searchFilter: "="
+    order: "="
     page: "="
     destroy: "&"
     edit: "&"

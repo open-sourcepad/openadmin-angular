@@ -9,4 +9,8 @@ module TokenProcessor
     self.update_attributes(access_token: nil)
   end
 
+  def set_reset_password_token
+    self.update_attribute(:reset_password_token, SecureRandom.urlsafe_base64(32).tr('lIO0', 'sxyz'))
+  end
+
 end

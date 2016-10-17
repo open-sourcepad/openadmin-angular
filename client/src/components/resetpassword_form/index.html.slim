@@ -1,0 +1,41 @@
+form name="form" novalidate="true" autocomplete="off"
+  .form-group
+    label New Password
+    form-input(
+      field-name="Password"
+      field-value="$ctrl.password.new"
+      field-placeholder="Enter your new password"
+      on-enter="$ctrl.submit(form)"
+      is-required="true"
+      field-type="password"
+      field-length="8"
+      form="form"
+    )
+    .form-error
+      p.error ng-show="form.Password.$error.required"
+        | *Required
+      p.error ng-show="form.Password.$error.minlength"
+        | Password must be minimum of 8 characters
+
+  .form-group
+    label Confirm New Password
+    form-input(
+      field-name="ConfirmPassword"
+      field-value="$ctrl.password.confirm_new"
+      field-placeholder="Enter your new password again"
+      on-enter="$ctrl.submit(form)"
+      is-required="true"
+      field-type="password"
+      field-length="8"
+      form="form"
+    )
+    .form-error
+      p.error ng-show="form.ConfirmPassword.$error.required"
+        | *Required
+      p.error ng-show="form.ConfirmPassword.$error.minlength"
+        | Password must be minimum of 8 characters
+
+  .submit-form-row
+    a.btn.btn-primary.btn-block (ng-click="$ctrl.submit(form)"
+      ng-class="{disabled: form.$invalid}")
+      |  Reset Password

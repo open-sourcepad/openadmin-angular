@@ -12,7 +12,7 @@ class Api::V1::SessionsController < ApiController
 
   def create
     user = User.find_by_credentials(params[:credentials])
-    if user && user.set_access_token
+    if user && user.set_access_token && user.set_active
       render json: Sessions::Builder.new(user).show
     else
       fail InvalidCredentialsError

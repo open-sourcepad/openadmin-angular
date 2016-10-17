@@ -2,7 +2,7 @@
   .title Users
 
 .inner-container
-  .panel.light
+  .panel
     .panel-head
       .panel-action
         a ng-click="toggleModal(null,'new')"
@@ -11,16 +11,18 @@
       users-table(
         collection="collection"
         search-filter="active_search"
+        order="order"
         page="uiState.page"
         edit="toggleModal(obj,'edit')"
         destroy="destroy(obj)"
-        search="getData(page,user)"
+        search="getData(page,user,order)"
       )
     .panel-footer
       pagination(
         count="uiState.count"
         page="uiState.page"
         on-change="getData(page,active_search)"
+        ng-hide = "uiState.count <= 0"
       )
 
 

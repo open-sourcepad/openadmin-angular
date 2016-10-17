@@ -26,6 +26,26 @@
     .form-group
       margin-bottom: 0px
 
-ul.pagination
+.pagination
   li
     display: inline
+    &.disabled
+      a
+        cursor: default !important
+        pointer-events: none !important
+        color: $clean !important
+        background-color: mix(white, $gold ,78%) !important
+    &.active
+      a
+        cursor: default !important
+        color: $white !important
+        background-color: $gold !important
+    a
+      line-height: 1.42857143
+      padding: 6px 12px
+      border: 1px solid $clean
+      background-color: $white
+      color: $dark
+      &:hover
+        background-color: mix(black, $gold ,15%)
+        color: $white
