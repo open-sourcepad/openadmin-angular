@@ -18,7 +18,8 @@ A collection of Angular 1.5 components married with Rails.
 
 # Structure
 
-1. All client side sources are inside `/client`
+1. `$ start hello` => This will create an app named hello
+2. All client side sources are inside `/client`
 2. `/client/src/manifest.js` are linked inside `app/assets/javascript/app.js`
 3. `/client/stylesheets/manifest.sass` are linked inside `app/assets/javascript/app.css`
 4. `app.js` and `app.css` compiles everything.
@@ -32,5 +33,5 @@ Feel free to add your names here.
 If you have a component to share, place it inside client/src/components.
 
 [@alvingarcia](https://github.com/alvingarcia)
-
 [@normancapule](https://github.com/normancapule)
+[@daryllxd](https://github.com/daryllxd)

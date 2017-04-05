@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+# Bundle install
+
+system('bundle install')
+
+new_database_file_path = 'config/database.yml'
+
+ARGV.each do |a|
+  File.open(new_database_file_path, 'w') do |file|
+    file.write( <<-HEREDOC
+development:
+  adapter: postgresql
+  encoding: utf8
+  reconnect: false
+  database: #{a}_development
+  pool: 5
+  username: daryllxd
+  host: localhost
+  port: 5432
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  reconnect: false
+  database: #{a}_test
+  username: daryllxd
+  pool: 5
+  host: localhost
+  port: 5432
+HEREDOC
+    )
+  end
+end
+
+system('bundle exec rake db:setup')

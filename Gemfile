@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 gem 'rails'
 gem 'sass-rails'
 gem 'uglifier'
@@ -38,6 +37,7 @@ group :development, :test do
   gem 'letter_opener'
   gem 'guard-rspec'
   gem 'rb-fsevent'
+  gem 'rb-readline'
 end
 
 group :test do

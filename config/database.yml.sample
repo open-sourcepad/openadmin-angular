@@ -1,0 +1,20 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  reconnect: false
+  database: DEFAULT_DATABASE
+  pool: 5
+  username: daryllxd
+  host: localhost
+  port: 5432
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  reconnect: false
+  database: DEFAULT_DATABASE
+  username: daryllxd
+  pool: 5
+  host: localhost
+  port: 5432
+
